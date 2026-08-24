@@ -1,18 +1,20 @@
 ---
 _schema: default
-title: Blog
+title: journal
 description: >-
-  Read our latest articles and insights on web development, design, and
-  technology.
+  notes from the workbasket — new pieces, colours we are enjoying, and what is
+  on the go at bandhan.
 pageSections:
   - _component: page-sections/heroes/hero-center
-    eyebrow: ''
-    heading: All posts
+    eyebrow: journal
+    heading: notes from the workbasket
     subtext: >-
-      This paginated blog index displays a grid of article cards, each waiting
-      to be populated with genuine posts once your content strategy moves beyond
-      placeholder text.
+      the occasional post about what we are making, what is new, and which
+      colours we cannot stop reaching for.
     buttonSections: []
+    maxContentWidth: lg
+    paddingHorizontal: lg
+    paddingVertical: 4xl
     colorScheme: inherit
-    backgroundColor: base
+    backgroundColor: accent
 ---

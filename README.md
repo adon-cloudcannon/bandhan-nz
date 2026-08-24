@@ -1,3 +1,30 @@
+# bandhan
+
+The website for [Bandhan](https://bandhan.co.nz) — handmade macrame and chunky knit pieces made in Aotearoa New Zealand.
+
+Built on the CloudCannon [Astro Component Starter](https://github.com/CloudCannon/astro-component-starter); the starter's own documentation follows below.
+
+## Where things live
+
+| What                                                   | Where                                                    |
+| ------------------------------------------------------ | -------------------------------------------------------- |
+| Page content (home, shop, gallery, our story, contact) | `src/content/pages/*.md`                                 |
+| Header, footer and SEO settings                        | `src/data/*.json`                                        |
+| Product photos                                         | `src/assets/images/bandhan/products/`                    |
+| Logo mark (light and dark)                             | `src/assets/images/bandhan/`                             |
+| Brand colours                                          | `src/styles/variables/_colors.css`, `src/styles/themes/` |
+| Comfortaa font registration                            | `site-fonts.mjs`                                         |
+| House styles on top of the starter                     | `src/styles/_bandhan.css`                                |
+
+Two page sections were built for this site and follow the starter's three-file pattern, so they are editable in CloudCannon like everything else:
+
+- `src/components/page-sections/commerce/product-grid/` — product cards with prices and a one-click email enquiry link
+- `src/components/page-sections/media/gallery-mosaic/` — photo mosaic with optional two-column feature tiles
+
+The journal (`/blog/`) is wired up but empty, and is not linked from the navigation. Add an `.mdx` file to `src/content/blog/` to start it.
+
+---
+
 # Astro Component Starter
 
 A starter template with 40+ Astro components, each built for visual editing in [CloudCannon](https://cloudcannon.com/). You clone it, you own it. Every component is your source code to modify, extend, or delete.

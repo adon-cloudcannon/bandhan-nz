@@ -13,7 +13,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://example.com", // TODO: Update to your production URL
+  site: "https://bandhan.co.nz",
   fonts: siteFonts,
   build: {
     inlineStylesheets: "always",
@@ -76,6 +76,10 @@ export default defineConfig({
           return false;
         }
         if (page.includes("/component-docs")) {
+          return false;
+        }
+        // The journal is wired up but empty and unlinked; keep it out of the sitemap.
+        if (page.endsWith("/blog/")) {
           return false;
         }
         return true;

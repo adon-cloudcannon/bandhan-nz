@@ -13,27 +13,67 @@
   --gray-11: #151515;
   --gray-12: #000;
 
-  --blue-light: #e8f4fd;
-  --blue-dark: #3b82f6;
+  /* Accent pairs, retuned into Bandhan's warm family so any icon colour an
+     editor picks still belongs on the page. */
+  --blue-light: #e8eef1;
+  --blue-dark: #557284;
 
-  --green-light: #e8fce9;
-  --green-dark: #10b981;
+  --green-light: #edf1e9;
+  --green-dark: #5a6a4e;
 
-  --yellow-light: #fef9e7;
-  --yellow-dark: #fbbf24;
+  --yellow-light: #f9f0dd;
+  --yellow-dark: #a1793a;
 
-  --orange-light: #fef3e7;
-  --orange-dark: #f97316;
+  --orange-light: #fbeadf;
+  --orange-dark: #ad6642;
 
-  --red-light: #fee8e8;
-  --red-dark: #ef4444;
+  --red-light: #fbeeec;
+  --red-dark: #b3402f;
 
-  --purple-light: #f3e8ff;
-  --purple-dark: #a855f7;
+  --purple-light: #f2e9ee;
+  --purple-dark: #8a6a7d;
 
-  --pink-light: #fde8f2;
-  --pink-dark: #ec4899;
+  --pink-light: #faede8;
+  --pink-dark: #a47365;
 
-  --cyan-light: #e8fffe;
-  --cyan-dark: #06b6d4;
+  --cyan-light: #e6eeee;
+  --cyan-dark: #4c7677;
+}
+
+/* ---------------------------------------------------------------------------
+   Bandhan brand palette
+   `--rose-400` (#d4aca3) is the core brand colour. It is soft enough that it
+   never carries text on a light background — it is used for fills, washes and
+   large shapes, with the deeper roses handling anything that needs contrast.
+   --------------------------------------------------------------------------- */
+
+:where(:root) {
+  --rose-50: #fdf6f3;
+  --rose-100: #faede8;
+  --rose-200: #f2dad2;
+  --rose-300: #e4c0b6;
+  --rose-400: #d4aca3;
+  --rose-500: #c08f84;
+  --rose-600: #a47365;
+  --rose-700: #85584c;
+  --rose-800: #66413a;
+  --rose-900: #472d28;
+
+  --cream-50: #fffdfb;
+  --cream-100: #fcf7f2;
+  --cream-200: #f6eee7;
+  --cream-300: #eee2d9;
+  --cream-400: #e0cec2;
+
+  --ink-500: #7b6a61;
+  --ink-600: #6a5a52;
+  --ink-700: #4e403a;
+  --ink-800: #3e332e;
+  --ink-900: #2e2521;
+  --ink-950: #1d1815;
+
+  --sage-100: #edf1e9;
+  --sage-300: #c7d1bd;
+  --sage-500: #93a385;
+  --sage-700: #5a6a4e;
 }

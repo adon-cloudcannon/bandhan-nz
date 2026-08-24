@@ -1,0 +1,103 @@
+/* ---------------------------------------------------------------------------
+   Bandhan house style
+   Site-level polish on top of the starter's components. Everything here lives
+   in the `overrides` layer so component styles stay untouched and easy to
+   update from upstream.
+   --------------------------------------------------------------------------- */
+
+@layer overrides {
+  /* Icon chips read as soft badges rather than square tiles. */
+  .icon > .icon-inner.background {
+    border-radius: var(--radius-lg);
+    padding: 0.45em;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    font-weight: 400;
+    letter-spacing: 0.005em;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  h1 {
+    line-height: 1.15;
+  }
+
+  p,
+  li {
+    line-height: 1.75;
+  }
+
+  /* Eyebrows read as a quiet lowercase label rather than shouty small caps. */
+  .eyebrow {
+    color: var(--color-brand-muted);
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: lowercase;
+  }
+
+  /* Soft, rounded buttons to match the handmade feel. */
+  .button > .button-inner {
+    border-radius: var(--radius-full);
+    letter-spacing: 0.02em;
+    padding-block: 0.7em;
+    padding-inline: 1.5em;
+
+    &.icon-only {
+      padding: 0.55em;
+    }
+
+    &.variant-text {
+      padding: 0;
+      text-decoration: underline;
+      text-decoration-color: var(--color-brand-subtle);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 0.25em;
+    }
+  }
+
+  /* Everything is a little rounder and softer than the starter default. */
+  .card > .card-inner.rounded {
+    border-radius: var(--radius-xl);
+  }
+
+  .image.rounded > .image-inner,
+  .image.rounded img {
+    border-radius: var(--radius-xl);
+  }
+
+  .custom-section > .outer-content.rounded {
+    border-radius: var(--radius-3xl);
+  }
+
+  /* Inputs pick up the same rounded, warm treatment. */
+  input:not([type="checkbox"], [type="radio"], [type="range"]),
+  textarea,
+  select {
+    background-color: var(--color-bg);
+    border-radius: var(--radius-lg);
+  }
+
+  /* Header: a warm sticky bar that sits on the page rather than fighting it. */
+  .main-nav {
+    backdrop-filter: blur(8px);
+    background-color: color-mix(in srgb, var(--color-bg) 88%, transparent);
+    border-bottom: 1px solid var(--color-border-subtle);
+    position: sticky;
+    top: 0;
+    z-index: var(--layer-4);
+  }
+
+  .footer {
+    background-color: var(--color-bg-surface);
+  }
+}

@@ -18,6 +18,7 @@ const {
   logoSource,
   logoAlternateSource,
   logoAlt = "logo",
+  logoText = "",
   navData = [],
   buttonSections = [] as NavButton[],
   themeToggle = false,
@@ -47,15 +48,17 @@ const mobileNavData = [
 >
   <a
     href="/"
-    class="main-nav-logo-link"
+    class:list={["main-nav-logo-link", logoText && "has-wordmark"]}
   >
     <Image
       source={logoSource}
       alternateSource={logoAlternateSource}
       class="main-nav-logo"
       alt={logoAlt}
+      priority={true}
       useDefaultEditableBinding={false}
     />
+    {logoText && <span class="main-nav-wordmark">{logoText}</span>}
   </a>
   <div class="nav-end">
     <Bar
@@ -76,6 +79,7 @@ const mobileNavData = [
     logoSource={logoSource}
     logoAlternateSource={logoAlternateSource}
     logoAlt={logoAlt}
+    logoText={logoText}
     navData={mobileNavData}
     class="mobile-main-nav"
     useDefaultEditableBinding={false}
@@ -142,6 +146,28 @@ const mobileNavData = [
           height: 2rem;
           max-width: 100%;
           width: auto;
+        }
+
+        /* When a wordmark sits beside the mark, the link sizes to its content. */
+        > .main-nav-logo-link.has-wordmark {
+          color: var(--color-text-strong);
+          flex: 0 0 auto;
+          gap: var(--spacing-sm);
+          text-decoration: none;
+          width: auto;
+        }
+
+        > .main-nav-logo-link.has-wordmark > .main-nav-logo {
+          flex: 0 0 auto;
+          width: auto;
+        }
+
+        > .main-nav-logo-link > .main-nav-wordmark {
+          font-family: var(--font-headings);
+          font-size: var(--font-size-xl);
+          font-weight: 600;
+          letter-spacing: 0.01em;
+          line-height: 1;
         }
 
         .button-group {

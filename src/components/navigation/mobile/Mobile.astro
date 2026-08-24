@@ -8,6 +8,7 @@ const {
   logoSource,
   logoAlternateSource,
   logoAlt,
+  logoText = "",
   navData = [],
   class: className,
   useDefaultEditableBinding: _useDefaultEditableBinding = false,
@@ -76,15 +77,17 @@ function createNavItemData(item, level, parentGroupId) {
   {...htmlAttributes}
 >
   <div class="mobile-header">
-    <div class="mobile-logo">
+    <div class:list={["mobile-logo", logoText && "has-wordmark"]}>
       <slot name="logo">
         <Image
           source={logoSource}
           alternateSource={logoAlternateSource}
           alt={logoAlt || "Astro Component Starter"}
           class="mobile-logo-image"
+          priority={true}
           useDefaultEditableBinding={false}
         />
+        {logoText && <span class="mobile-wordmark">{logoText}</span>}
       </slot>
     </div>
     <div class="mobile-header-actions">
@@ -477,6 +480,25 @@ function createNavItemData(item, level, parentGroupId) {
           flex: 0 1 min(11rem, 100%);
           min-width: 0;
           width: min(11rem, 100%);
+        }
+
+        .mobile-logo.has-wordmark {
+          flex: 0 0 auto;
+          gap: var(--spacing-sm);
+          width: auto;
+        }
+
+        .mobile-logo.has-wordmark .mobile-logo-image {
+          flex: 0 0 auto;
+          width: auto;
+        }
+
+        .mobile-logo .mobile-wordmark {
+          color: var(--color-text-strong);
+          font-family: var(--font-headings);
+          font-size: var(--font-size-xl);
+          font-weight: 600;
+          line-height: 1;
         }
 
         .mobile-header-actions {

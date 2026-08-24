@@ -129,6 +129,9 @@ collections_config:
           titleFormat:
             comment: Browser title template. Include {title} where the page title should appear.
     _inputs:
+      logoText:
+        type: text
+        comment: Wordmark shown beside the logo mark in the header and footer. Leave empty to show the mark on its own.
       logoSource:
         type: image
         options:

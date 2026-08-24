@@ -1,8 +1,8 @@
 {
   "_schema": "seo",
-  "name": "Astro Component Starter",
-  "url": "https://example.com",
-  "description": "Build fast, customizable Astro sites with a modern component starter that is easy to edit and maintain.",
-  "logoSource": "/src/assets/images/component-docs/acs-logo.svg",
-  "titleFormat": "{title} | Astro Component Starter"
+  "name": "Bandhan",
+  "url": "https://bandhan.co.nz",
+  "description": "handmade macrame dolls, angels, wall hangings and chunky knit blankets, made one at a time in aotearoa new zealand.",
+  "logoSource": "/src/assets/images/bandhan/bandhan-mark.png",
+  "titleFormat": "{title} | bandhan"
 }

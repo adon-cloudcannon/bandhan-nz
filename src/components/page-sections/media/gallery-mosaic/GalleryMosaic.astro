@@ -1,0 +1,208 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+import Image from "@core-elements/image/Image.astro";
+import SimpleText from "@core-elements/simple-text/SimpleText.astro";
+import Text from "@core-elements/text/Text.astro";
+import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
+
+type GalleryImage = {
+  source?: string;
+  alt?: string;
+  caption?: string;
+  feature?: boolean;
+  positionVertical?: string;
+  positionHorizontal?: string;
+};
+
+const {
+  eyebrow = "",
+  heading = "",
+  subtext = "",
+  images = [] as GalleryImage[],
+  buttonSections = [],
+  columns = "3",
+  gap = "md",
+  alignmentHorizontal = "center",
+  sectionLabel,
+  maxContentWidth = "2xl",
+  paddingHorizontal = "lg",
+  paddingVertical = "4xl",
+  colorScheme = "inherit",
+  backgroundColor,
+  background,
+  class: className,
+  useDefaultEditableBinding = false,
+  _component,
+  ...htmlAttributes
+} = Astro.props;
+
+const mosaicStyle = [
+  `--mosaic-columns: ${columns}`,
+  `--mosaic-gap: ${gap === "none" ? "0px" : `var(--spacing-${gap})`}`,
+].join("; ");
+---
+
+<CustomSection
+  class:list={["gallery-mosaic", className]}
+  label={sectionLabel}
+  maxContentWidth={maxContentWidth}
+  paddingHorizontal={paddingHorizontal}
+  paddingVertical={paddingVertical}
+  colorScheme={colorScheme}
+  backgroundColor={backgroundColor}
+  background={background}
+  useDefaultEditableBinding={useDefaultEditableBinding}
+  {...htmlAttributes}
+>
+  <SimpleText
+    alignmentHorizontal={alignmentHorizontal}
+    class="eyebrow"
+    data-prop="eyebrow"
+    text={eyebrow}
+  />
+  <Heading
+    level="h2"
+    size="lg"
+    alignmentHorizontal={alignmentHorizontal}
+    data-prop="heading"
+  >
+    {heading}
+  </Heading>
+  <Text
+    class="gallery-mosaic-subtext subtext"
+    alignmentHorizontal={alignmentHorizontal}
+    data-prop="subtext"
+    text={subtext}
+  />
+
+  <ul
+    class="mosaic"
+    style={mosaicStyle}
+    data-editable="array"
+    data-prop="images"
+  >
+    {
+      images.map((image: GalleryImage) => (
+        <li
+          class:list={["mosaic-item", image.feature && "is-feature"]}
+          data-editable="array-item"
+        >
+          <figure class="mosaic-figure">
+            <Image
+              source={image.source}
+              alt={image.alt}
+              aspectRatio="square"
+              positionVertical={image.positionVertical}
+              positionHorizontal={image.positionHorizontal}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              widths={[480, 800, 1200]}
+              data-prop-src="source"
+              data-prop-alt="alt"
+            />
+            {image.caption && <figcaption data-prop="caption">{image.caption}</figcaption>}
+          </figure>
+        </li>
+      ))
+    }
+  </ul>
+
+  <ButtonGroup
+    class="gallery-mosaic-buttons"
+    buttonSections={buttonSections}
+    alignmentHorizontal={alignmentHorizontal}
+    data-children-prop="buttonSections"
+  />
+</CustomSection>
+
+<style is:global>
+  @layer page-sections {
+    .gallery-mosaic-subtext {
+      margin-inline: auto;
+      max-width: 60ch;
+    }
+
+    .mosaic {
+      display: grid;
+      gap: var(--mosaic-gap, var(--spacing-md));
+      grid-auto-flow: dense;
+      grid-template-columns: repeat(var(--mosaic-columns, 3), minmax(0, 1fr));
+      list-style: none;
+      margin: var(--spacing-2xl) 0 0;
+      padding: 0;
+    }
+
+    .mosaic-item.is-feature {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .mosaic-figure {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      position: relative;
+
+      > .image {
+        border-radius: var(--radius-lg);
+        height: 100%;
+        /* Images carry a default top margin; a tile has no room for it. */
+        margin-top: 0;
+        overflow: hidden;
+
+        img {
+          display: block;
+          height: 100%;
+          transition: transform 600ms ease-out;
+          width: 100%;
+        }
+      }
+
+      &:hover > .image img {
+        transform: scale(1.04);
+      }
+
+      > figcaption {
+        background: linear-gradient(to top, rgba(46, 37, 33, 0.72), transparent);
+        border-end-end-radius: var(--radius-lg);
+        border-end-start-radius: var(--radius-lg);
+        bottom: 0;
+        color: var(--cream-50);
+        font-size: var(--font-size-sm);
+        left: 0;
+        padding: var(--spacing-2xl) var(--spacing-md) var(--spacing-md);
+        position: absolute;
+        right: 0;
+      }
+    }
+
+    .gallery-mosaic-buttons {
+      margin-top: var(--spacing-2xl);
+    }
+
+    @media (width < 900px) {
+      .mosaic {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (width < 520px) {
+      .mosaic {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .mosaic-item.is-feature {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .mosaic-figure > .image img,
+      .mosaic-figure:hover > .image img {
+        transform: none;
+        transition: none;
+      }
+    }
+  }
+</style>

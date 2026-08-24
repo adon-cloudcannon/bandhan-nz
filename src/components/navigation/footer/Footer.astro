@@ -15,6 +15,7 @@ const {
   logoSource,
   logoAlternateSource,
   logoAlt,
+  logoText = "",
   useDefaultEditableBinding: _useDefaultEditableBinding = false,
   _component,
   ...htmlAttributes
@@ -33,13 +34,19 @@ const {
   >
     <div class="footer-content">
       <div class="content-container">
-        <Image
-          source={logoSource}
-          alternateSource={logoAlternateSource}
-          alt={logoAlt}
-          class="footer-logo"
-          useDefaultEditableBinding={false}
-        />
+        <a
+          href="/"
+          class:list={["footer-logo-link", logoText && "has-wordmark"]}
+        >
+          <Image
+            source={logoSource}
+            alternateSource={logoAlternateSource}
+            alt={logoAlt}
+            class="footer-logo"
+            useDefaultEditableBinding={false}
+          />
+          {logoText && <span class="footer-wordmark">{logoText}</span>}
+        </a>
       </div>
       <div class="content-container">
         <Bar
@@ -117,6 +124,30 @@ const {
         text-align: center;
         @container (min-width: 600px) {
           text-align: start;
+        }
+      }
+
+      .footer-logo-link {
+        align-items: center;
+        color: var(--color-text-strong);
+        display: flex;
+        gap: var(--spacing-sm);
+        justify-content: center;
+        text-decoration: none;
+        @container (min-width: 600px) {
+          justify-content: start;
+        }
+
+        &.has-wordmark .footer-logo img {
+          margin-bottom: 0;
+          margin-inline: 0;
+        }
+
+        .footer-wordmark {
+          font-family: var(--font-headings);
+          font-size: var(--font-size-xl);
+          font-weight: 600;
+          line-height: 1;
         }
       }
 

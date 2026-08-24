@@ -1,0 +1,204 @@
+---
+import Button from "@core-elements/button/Button.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+import Image from "@core-elements/image/Image.astro";
+import SimpleText from "@core-elements/simple-text/SimpleText.astro";
+import Card from "@wrappers/card/Card.astro";
+import GridItem from "@wrappers/grid/GridItem.astro";
+
+const {
+  name = "",
+  price = "",
+  description = "",
+  imageSource = "",
+  imageAlt = "",
+  badge = "",
+  enquiryEmail = "",
+  enquiryText = "enquire",
+  class: className,
+  useDefaultEditableBinding: _useDefaultEditableBinding = false,
+  _component,
+  ...htmlAttributes
+} = Astro.props;
+
+/** Pre-fills the customer's mail client so an enquiry only takes one click. */
+const enquiryLink = enquiryEmail
+  ? `mailto:${enquiryEmail}?subject=${encodeURIComponent(`enquiry: ${name}`)}`
+  : "";
+---
+
+<GridItem
+  class="product-card-item"
+  {...htmlAttributes}
+>
+  <Card
+    class:list={["product-card", className]}
+    paddingHorizontal="none"
+    paddingVertical="none"
+    rounded
+    backgroundColor="base"
+  >
+    <div class="product-media">
+      <Image
+        source={imageSource}
+        alt={imageAlt || name}
+        aspectRatio="square"
+        data-prop-src="imageSource"
+        data-prop-alt="imageAlt"
+      />
+      {
+        badge && (
+          <span
+            class="product-badge"
+            data-editable="text"
+            data-prop="badge"
+          >
+            {badge}
+          </span>
+        )
+      }
+    </div>
+    <div class="product-body">
+      <div class="product-titles">
+        <Heading
+          class="product-name"
+          level="h3"
+          size="xs"
+          alignmentHorizontal="start"
+          data-prop="name"
+        >
+          {name}
+        </Heading>
+        <SimpleText
+          class="product-price"
+          size="sm"
+          text={price}
+          data-prop="price"
+        />
+      </div>
+      <SimpleText
+        class="product-description"
+        size="sm"
+        text={description}
+        data-prop="description"
+      />
+      {
+        enquiryLink && (
+          <Button
+            class="product-enquire"
+            text={enquiryText}
+            link={enquiryLink}
+            variant="text"
+            size="sm"
+            iconName="arrow-long-right"
+            iconPosition="after"
+          />
+        )
+      }
+    </div>
+  </Card>
+</GridItem>
+
+<style is:global>
+  @layer page-sections {
+    .product-card-item {
+      height: 100%;
+    }
+
+    .product-card {
+      height: 100%;
+
+      > .card-inner {
+        border: 1px solid var(--color-border-subtle);
+        height: 100%;
+        overflow: hidden;
+        transition:
+          transform var(--animation-normal) ease-out,
+          box-shadow var(--animation-normal) ease-out;
+
+        &:hover {
+          box-shadow: 0 18px 40px -24px rgba(46, 37, 33, 0.35);
+          transform: translateY(-3px);
+        }
+
+        > .content {
+          display: flex;
+          flex-direction: column;
+          gap: 0;
+          height: 100%;
+        }
+      }
+    }
+
+    .product-media {
+      background-color: var(--color-bg-accent);
+      position: relative;
+
+      > .image {
+        /* Images carry a default top margin; the photo sits flush here. */
+        margin-top: 0;
+      }
+
+      > .image img {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    .product-badge {
+      background-color: var(--rose-400);
+      border-radius: var(--radius-full);
+      color: var(--ink-900);
+      font-size: var(--font-size-xs);
+      font-weight: 600;
+      inset-block-start: var(--spacing-md);
+      inset-inline-start: var(--spacing-md);
+      letter-spacing: 0.04em;
+      padding-block: 0.35em;
+      padding-inline: 0.85em;
+      position: absolute;
+      z-index: var(--layer-1);
+    }
+
+    .product-body {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      gap: var(--spacing-sm);
+      padding: var(--spacing-lg);
+    }
+
+    .product-titles {
+      align-items: baseline;
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-xs) var(--spacing-md);
+      justify-content: space-between;
+
+      > .product-name {
+        margin: 0;
+      }
+    }
+
+    .product-price {
+      color: var(--color-brand);
+      font-weight: 600;
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .product-description {
+      color: var(--color-text-muted);
+      margin: 0;
+    }
+
+    .product-enquire {
+      margin-top: auto;
+      padding-top: var(--spacing-sm);
+
+      > .button-inner {
+        font-size: var(--font-size-sm);
+      }
+    }
+  }
+</style>

@@ -1,38 +1,27 @@
 {
-  "logoSource": "/src/assets/images/component-docs/acs-logo.svg",
-  "logoAlternateSource": "/src/assets/images/component-docs/acs-logo-dark.svg",
-  "logoAlt": "Astro Component Starter",
+  "logoSource": "/src/assets/images/bandhan/bandhan-mark.png",
+  "logoAlternateSource": "/src/assets/images/bandhan/bandhan-mark-dark.png",
+  "logoAlt": "Bandhan",
+  "logoText": "bandhan",
   "links": [
-    {
-      "name": "Home",
-      "path": "/"
-    },
-    {
-      "name": "Why",
-      "path": "/why/"
-    },
-    {
-      "name": "Components",
-      "path": "/component-docs/"
-    },
-    {
-      "name": "Blog",
-      "path": "/blog/"
-    }
+    { "name": "home", "path": "/" },
+    { "name": "shop", "path": "/shop/" },
+    { "name": "gallery", "path": "/gallery/" },
+    { "name": "our story", "path": "/about/" },
+    { "name": "get in touch", "path": "/contact/" }
   ],
   "socials": [
     {
-      "icon": "social/github",
-      "link": "https://github.com"
+      "icon": "social/instagram",
+      "link": "https://www.instagram.com/bandhan_nz",
+      "label": "Bandhan on Instagram"
     },
     {
-      "icon": "social/x",
-      "link": "https://x.com"
+      "icon": "social/facebook",
+      "link": "https://facebook.com/bandhanNZ/",
+      "label": "Bandhan on Facebook"
     },
-    {
-      "icon": "social/linkedin",
-      "link": "https://linkedin.com"
-    }
+    { "icon": "envelope", "link": "mailto:info@bandhan.co.nz", "label": "Email Bandhan" }
   ],
-  "footerText": "© 2026 All rights reserved."
+  "footerText": "handmade in aotearoa new zealand · © 2026 bandhan"
 }

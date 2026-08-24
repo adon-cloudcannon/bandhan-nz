@@ -1,40 +1,25 @@
 {
-  "logoSource": "/src/assets/images/component-docs/acs-logo.svg",
-  "logoAlternateSource": "/src/assets/images/component-docs/acs-logo-dark.svg",
-  "logoAlt": "Astro Component Starter",
+  "logoSource": "/src/assets/images/bandhan/bandhan-mark.png",
+  "logoAlternateSource": "/src/assets/images/bandhan/bandhan-mark-dark.png",
+  "logoAlt": "Bandhan",
+  "logoText": "bandhan",
   "themeToggle": true,
   "navData": [
-    {
-      "name": "Home",
-      "path": "/",
-      "children": []
-    },
-    {
-      "name": "Why",
-      "path": "/why/",
-      "children": []
-    },
-    {
-      "name": "Components",
-      "path": "/component-docs/",
-      "children": []
-    },
-    {
-      "name": "Blog",
-      "path": "/blog/",
-      "children": []
-    }
+    { "name": "home", "path": "/", "children": [] },
+    { "name": "shop", "path": "/shop/", "children": [] },
+    { "name": "gallery", "path": "/gallery/", "children": [] },
+    { "name": "our story", "path": "/about/", "children": [] }
   ],
   "buttonSections": [
     {
       "_component": "building-blocks/core-elements/button",
-      "text": "Search",
-      "hideText": true,
-      "link": "/search/",
-      "iconName": "magnifying-glass",
+      "text": "get in touch",
+      "hideText": false,
+      "link": "/contact/",
+      "iconName": "",
       "iconPosition": "before",
-      "variant": "ghost",
-      "size": "lg"
+      "variant": "primary",
+      "size": "md"
     }
   ]
 }

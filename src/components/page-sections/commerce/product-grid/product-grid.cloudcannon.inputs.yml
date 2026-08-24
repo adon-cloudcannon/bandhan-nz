@@ -1,0 +1,80 @@
+eyebrow:
+  type: text
+  comment: Optional eyebrow text shown above the heading.
+heading:
+  type: text
+  comment: Main heading for the collection.
+subtext:
+  type: markdown
+  comment: Supporting copy beneath the heading.
+  options:
+    blockquote: false
+    bold: true
+    format:
+    italic: true
+    link: true
+    strike: false
+    subscript: false
+    superscript: false
+    underline: false
+    bulletedlist: false
+    numberedlist: false
+enquiryEmail:
+  type: email
+  comment: Enquiries open the visitor's mail app addressed here, with the product name as the subject. Leave empty to hide the enquiry links.
+enquiryText:
+  type: text
+  comment: Wording for the enquiry link on each card.
+footnote:
+  type: markdown
+  comment: Optional small print below the grid, for shipping or turnaround notes.
+  options:
+    blockquote: false
+    bold: true
+    format:
+    italic: true
+    link: true
+    bulletedlist: false
+    numberedlist: false
+alignmentHorizontal:
+  type: select
+  comment: Alignment for the heading and supporting text.
+  options:
+    values:
+      - id: start
+        name: Start
+      - id: center
+        name: Center
+gap:
+  type: select
+  comment: Spacing between product cards.
+  options:
+    values:
+      - id: sm
+        name: Small
+      - id: md
+        name: Medium
+      - id: lg
+        name: Large
+      - id: xl
+        name: Extra Large
+      - id: 2xl
+        name: 2xl
+minItemWidth:
+  type: number
+  comment: Minimum width for each product card in pixels.
+maxItemWidth:
+  type: number
+  comment: Maximum width for each product card in pixels.
+buttonSections:
+  type: array
+  label: Buttons
+  comment: Optional buttons shown below the grid.
+  options:
+    structures: _structures.buttonSections
+products:
+  type: array
+  label: Products
+  comment: The pieces shown in this collection.
+  options:
+    structures: _structures.productGridItems

@@ -6,25 +6,29 @@
  * - Prefer `fontProviders.fontsource()` (local via @fontsource packages) over remote providers.
  * - Use a weight range string (e.g. `"100 900"`) for variable fonts instead of discrete weights.
  *
+ * Bandhan uses Comfortaa for everything — it carries the soft, handmade feel of the brand.
+ *
  * @see https://docs.astro.build/en/guides/fonts/
  */
 import { fontProviders } from "astro/config";
 
 export const siteFonts = [
   {
-    name: "Inter",
+    name: "Comfortaa",
     cssVariable: "--font-body",
     provider: fontProviders.google(),
-    weights: ["100 900"],
+    weights: ["300 700"],
     styles: ["normal"],
     subsets: ["latin"],
+    fallbacks: ["Trebuchet MS", "ui-rounded", "sans-serif"],
   },
   {
-    name: "Raleway",
+    name: "Comfortaa",
     cssVariable: "--font-headings",
     provider: fontProviders.google(),
-    weights: ["100 900"],
+    weights: ["300 700"],
     styles: ["normal"],
     subsets: ["latin"],
+    fallbacks: ["Trebuchet MS", "ui-rounded", "sans-serif"],
   },
 ];

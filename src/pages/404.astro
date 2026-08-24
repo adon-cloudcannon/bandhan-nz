@@ -9,24 +9,35 @@ const canonical = new URL("/404.html", Astro.site ?? seoData.url).href;
 ---
 
 <Page
-  title="Page not found"
-  description="This URL does not exist on this site. Use the navigation or go home to find what you need."
+  title="page not found"
+  description="this page does not exist. head home, or have a browse of the shop instead."
   canonical={canonical}
   mainNav={mainNavData}
   footer={footerData}
 >
   <section class="not-found">
-    <h1>Page not found</h1>
-    <p>Something went wrong, or this page has moved.</p>
-    <Button
-      text="Go to home"
-      link="/"
-      variant="primary"
-      size="md"
-      hideText={false}
-      iconName=""
-      iconPosition="before"
-    />
+    <h1>a loose thread</h1>
+    <p>this page has wandered off, or never existed in the first place. no harm done.</p>
+    <div class="not-found-actions">
+      <Button
+        text="back home"
+        link="/"
+        variant="primary"
+        size="md"
+        hideText={false}
+        iconName=""
+        iconPosition="before"
+      />
+      <Button
+        text="see the shop"
+        link="/shop/"
+        variant="tertiary"
+        size="md"
+        hideText={false}
+        iconName=""
+        iconPosition="before"
+      />
+    </div>
   </section>
 </Page>
 
@@ -47,5 +58,12 @@ const canonical = new URL("/404.html", Astro.site ?? seoData.url).href;
   .not-found p {
     color: var(--color-text-muted);
     margin: 0 0 var(--spacing-xl);
+  }
+
+  .not-found-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    justify-content: center;
   }
 </style>

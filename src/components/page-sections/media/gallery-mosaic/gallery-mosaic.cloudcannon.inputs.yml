@@ -1,0 +1,64 @@
+eyebrow:
+  type: text
+  comment: Optional eyebrow text shown above the heading.
+heading:
+  type: text
+  comment: Main heading for the gallery.
+subtext:
+  type: markdown
+  comment: Supporting copy beneath the heading.
+  options:
+    blockquote: false
+    bold: true
+    format:
+    italic: true
+    link: true
+    bulletedlist: false
+    numberedlist: false
+columns:
+  type: select
+  comment: Number of columns on wide screens. Fewer columns means larger photos.
+  options:
+    values:
+      - id: "2"
+        name: 2 Columns
+      - id: "3"
+        name: 3 Columns
+      - id: "4"
+        name: 4 Columns
+gap:
+  type: select
+  comment: Spacing between photos.
+  options:
+    values:
+      - id: none
+        name: None
+      - id: xs
+        name: Extra Small
+      - id: sm
+        name: Small
+      - id: md
+        name: Medium
+      - id: lg
+        name: Large
+alignmentHorizontal:
+  type: select
+  comment: Alignment for the heading and supporting text.
+  options:
+    values:
+      - id: start
+        name: Start
+      - id: center
+        name: Center
+images:
+  type: array
+  label: Photos
+  comment: Photos shown in the mosaic.
+  options:
+    structures: _structures.galleryMosaicImages
+buttonSections:
+  type: array
+  label: Buttons
+  comment: Optional buttons shown below the mosaic.
+  options:
+    structures: _structures.buttonSections

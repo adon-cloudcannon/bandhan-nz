@@ -1,49 +1,49 @@
-/* Dark theme */
+/* Dark theme — a warm, low-light version of the brand rather than a cold grey one. */
 [data-theme="dark"] {
   color-scheme: dark;
 
-  --color-brand: var(--gray-0);
-  --color-brand-muted: var(--gray-3);
-  --color-brand-subtle: var(--gray-5);
-  --color-brand-on: var(--gray-12);
+  --color-brand: var(--rose-300);
+  --color-brand-muted: var(--rose-400);
+  --color-brand-subtle: var(--rose-600);
+  --color-brand-on: var(--ink-950);
 
-  --color-text: var(--gray-1);
-  --color-text-strong: var(--gray-0);
-  --color-text-muted: var(--gray-0);
-  --color-text-on-muted: var(--gray-0);
-  --color-text-on-brand: var(--gray-12);
-  --color-text-inverse: var(--gray-12);
-  --color-link: #60a5fa;
-  --color-link-hover: #93c5fd;
+  --color-text: var(--cream-200);
+  --color-text-strong: var(--cream-50);
+  --color-text-muted: var(--rose-200);
+  --color-text-on-muted: var(--cream-50);
+  --color-text-on-brand: var(--ink-950);
+  --color-text-inverse: var(--ink-900);
+  --color-link: var(--rose-300);
+  --color-link-hover: var(--rose-200);
 
-  --color-bg: var(--gray-12);
-  --color-bg-surface: var(--gray-11);
-  --color-bg-muted: var(--gray-10);
-  --color-bg-accent: rgb(35, 54, 98);
-  --color-bg-highlight: rgb(94, 65, 28);
+  --color-bg: #241d1a;
+  --color-bg-surface: #2e2521;
+  --color-bg-muted: #3b302b;
+  --color-bg-accent: #4a3730;
+  --color-bg-highlight: #35392f;
   --color-bg-brand: var(--color-brand);
   --color-bg-brand-muted: var(--color-brand-muted);
-  --color-bg-inverse: var(--gray-1);
+  --color-bg-inverse: var(--cream-100);
 
-  --color-border: var(--gray-8);
-  --color-border-inputs: var(--gray-6);
-  --color-border-strong: var(--gray-4);
-  --color-border-subtle: var(--gray-8);
+  --color-border: #4d3f39;
+  --color-border-inputs: #6b574e;
+  --color-border-strong: var(--rose-300);
+  --color-border-subtle: #3b302b;
 
-  --color-state-hover: rgba(255, 255, 255, 0.04);
-  --color-state-active: rgba(255, 255, 255, 0.08);
-  --color-overlay: rgba(0, 0, 0, 0.7);
+  --color-state-hover: rgba(250, 237, 232, 0.08);
+  --color-state-active: rgba(250, 237, 232, 0.14);
+  --color-overlay: rgba(20, 16, 14, 0.72);
 
-  --color-focus-ring: rgba(0, 122, 255, 0.4);
+  --color-focus-ring: rgba(228, 192, 182, 0.6);
 
-  --color-danger: #f87171;
-  --color-danger-hover: #ef4444;
-  --color-danger-bg-subtle: rgba(239, 68, 68, 0.12);
-  --color-danger-border-subtle: rgba(239, 68, 68, 0.4);
-  --color-info: #60a5fa;
-  --color-info-bg-subtle: rgba(59, 130, 246, 0.12);
-  --color-info-border-subtle: rgba(59, 130, 246, 0.4);
-  --color-success: #4ade80;
-  --color-success-bg-subtle: rgba(16, 185, 129, 0.15);
+  --color-danger: #e79c8f;
+  --color-danger-hover: #f0b8ad;
+  --color-danger-bg-subtle: rgba(179, 64, 47, 0.18);
+  --color-danger-border-subtle: rgba(179, 64, 47, 0.45);
+  --color-info: var(--rose-300);
+  --color-info-bg-subtle: rgba(212, 172, 163, 0.14);
+  --color-info-border-subtle: rgba(212, 172, 163, 0.4);
+  --color-success: var(--sage-300);
+  --color-success-bg-subtle: rgba(147, 163, 133, 0.16);
   --color-error: var(--color-danger);
 }

@@ -7,6 +7,7 @@ socials:
       value:
         icon: ""
         link: ""
+        label: ""
       preview:
         text:
           - key: icon
@@ -32,3 +33,6 @@ socials:
         link:
           type: text
           comment: URL for the social media link.
+        label:
+          type: text
+          comment: Accessible label for the link, read out by screen readers. Falls back to the icon name.
