@@ -1,0 +1,44 @@
+---
+/**
+ * Reshuffles which products a rotating grid shows, on every page load.
+ *
+ * The whole pool is already in the HTML with all but `data-product-rotate` of
+ * them marked `hidden` at build time, so this only swaps which are hidden — no
+ * flash, and visitors without JavaScript still see a valid selection.
+ */
+---
+
+<script is:inline>
+  (function () {
+    function rotate() {
+      var grids = document.querySelectorAll("[data-product-rotate]");
+
+      Array.prototype.forEach.call(grids, function (grid) {
+        var count = Number(grid.getAttribute("data-product-rotate")) || 0;
+        var items = Array.prototype.slice.call(grid.querySelectorAll(".product-card-item"));
+
+        if (!count || count >= items.length) return;
+
+        var order = items.map(function (_item, index) {
+          return index;
+        });
+
+        for (var i = order.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var swap = order[i];
+          order[i] = order[j];
+          order[j] = swap;
+        }
+
+        var show = order.slice(0, count);
+
+        items.forEach(function (item, index) {
+          item.toggleAttribute("hidden", show.indexOf(index) === -1);
+        });
+      });
+    }
+
+    rotate();
+    document.addEventListener("astro:page-load", rotate);
+  })();
+</script>

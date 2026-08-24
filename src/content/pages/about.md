@@ -9,9 +9,9 @@ pageSections:
     eyebrow: our story
     heading: bandhan means bond
     subtext: >-
-      it is the word for the thread that ties people together — and it is a
-      fair description of what we make. small handmade things, meant to be
-      given, kept and handed on.
+      it is the word for the thread that ties people together — and it is a fair
+      description of what we make. hand knitted blankets, soft stuffed animals
+      and knotted macrame pieces, meant to be given, kept and handed on.
     imageSource: /src/assets/images/bandhan/products/posable-doll.jpg
     imageAlt: a posable macrame doll in a pink petal skirt sitting on a wooden table
     imageAspectRatio: square
@@ -51,7 +51,37 @@ pageSections:
     backgroundColor: base
     rounded: false
   - _component: page-sections/features/feature-split
-    eyebrow: the craft
+    eyebrow: what we make most of
+    heading: chunky yarn, knitted by hand
+    subtext: >-
+      the big pieces are knitted with no needles at all — just hands and a lot of
+      chunky yarn. blankets and throws made to the size you need, and soft
+      stuffed animals for the smaller members of the household.
+
+
+      each one is started from scratch once you order, so they take a while.
+      that is rather the point.
+    buttonSections:
+      - _component: building-blocks/core-elements/button
+        text: ask about a blanket
+        hideText: false
+        link: mailto:info@bandhan.co.nz
+        iconName: envelope
+        iconPosition: before
+        variant: tertiary
+        size: md
+    imageSource: /src/assets/images/bandhan/products/christmas-gnomes.jpg
+    imageAlt: three chunky knit gnomes with red and green pom pom hats
+    imageAspectRatio: square
+    imageRounded: true
+    reverse: false
+    maxContentWidth: xl
+    paddingHorizontal: lg
+    paddingVertical: 4xl
+    colorScheme: inherit
+    backgroundColor: surface
+  - _component: page-sections/features/feature-split
+    eyebrow: the other half
     heading: macrame, knot by knot
     subtext: >-
       every doll, angel and wall hanging starts as plain cotton rope. it gets
@@ -64,36 +94,6 @@ pageSections:
     buttonSections: []
     imageSource: /src/assets/images/bandhan/products/angel-wall-hanging.jpg
     imageAlt: a large macrame angel wall hanging with wide cream wings
-    imageAspectRatio: square
-    imageRounded: true
-    reverse: false
-    maxContentWidth: xl
-    paddingHorizontal: lg
-    paddingVertical: 4xl
-    colorScheme: inherit
-    backgroundColor: surface
-  - _component: page-sections/features/feature-split
-    eyebrow: the other half
-    heading: chunky yarn, knitted by hand
-    subtext: >-
-      alongside the macrame we hand knit with chunky yarn — blankets and throws
-      big enough to argue over, and soft stuffed animals for the smaller members
-      of the household.
-
-
-      no needles for the big pieces, just hands and a lot of yarn. they take a
-      while, so these are usually made to order.
-    buttonSections:
-      - _component: building-blocks/core-elements/button
-        text: ask about a blanket
-        hideText: false
-        link: mailto:info@bandhan.co.nz
-        iconName: envelope
-        iconPosition: before
-        variant: tertiary
-        size: md
-    imageSource: /src/assets/images/bandhan/products/christmas-gnomes.jpg
-    imageAlt: three chunky knit gnomes with red and green pom pom hats
     imageAspectRatio: square
     imageRounded: true
     reverse: true
@@ -116,20 +116,20 @@ pageSections:
       - title: your colours
         description: >-
           send us a photo of a nursery, a bouquet or a bridesmaid dress, and we
-          will match the rope and yarn to it.
+          will match the yarn or the rope to it.
         iconName: swatch
         iconColor: purple
       - title: made to keep
         description: >-
-          cotton rope, real wood and honest knots. these are the sort of things
-          that end up in a box of keepsakes.
+          good yarn, cotton rope, real wood and honest knots. these are the sort
+          of things that end up in a box of keepsakes.
         iconName: archive-box
         iconColor: yellow
     gap: lg
     minItemWidth: 280
     maxItemWidth: 360
     alignmentHorizontal: center
-    maxContentWidth: 2xl
+    maxContentWidth: xl
     paddingHorizontal: lg
     paddingVertical: 4xl
     colorScheme: inherit

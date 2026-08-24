@@ -2,8 +2,8 @@
 _schema: default
 title: gallery
 description: >-
-  a closer look at bandhan's handmade macrame dolls, angels, wall hangings and
-  christmas decorations.
+  a closer look at bandhan's hand knitted pieces and handmade macrame dolls,
+  angels, wall hangings and christmas decorations.
 pageSections:
   - _component: page-sections/heroes/hero-center
     eyebrow: gallery
@@ -72,13 +72,18 @@ pageSections:
     eyebrow: the whole lot
     heading: everything in one place
     subtext: >-
-      dolls, angels, wreaths and gnomes. if you see a colour combination you
-      like, mention it when you get in touch.
+      gnomes, dolls, angels and wreaths — with photos of the knit range on the
+      way. if you see a colour combination you like, mention it when you get in
+      touch.
     images:
+      - source: /src/assets/images/bandhan/products/christmas-gnomes.jpg
+        alt: three chunky knit gnomes with red and green pom pom hats
+        caption: knitted gnomes
+        feature: true
       - source: /src/assets/images/bandhan/products/angel-wall-hanging.jpg
         alt: a large macrame angel wall hanging with wide cream wings
         caption: large angel wall hanging
-        feature: true
+        feature: false
       - source: /src/assets/images/bandhan/products/macrame-doll-lilac.jpg
         alt: a macrame doll with dusty pink and taupe cotton fringing
         caption: individual macrame doll
@@ -106,10 +111,6 @@ pageSections:
       - source: /src/assets/images/bandhan/products/angel-tree-hanging.jpg
         alt: a small macrame angel with wooden wings, hanging from cotton cord
         caption: angel tree hanging
-        feature: false
-      - source: /src/assets/images/bandhan/products/christmas-gnomes.jpg
-        alt: three chunky knit gnomes with red and green pom pom hats
-        caption: gnomes
         feature: false
       - source: /src/assets/images/bandhan/products/tree-ornament-set.jpg
         alt: a macrame angel and two woven wreaths arranged on a white background

@@ -1,0 +1,136 @@
+{
+  "products": [
+    {
+      "id": "chunky-knit-blanket",
+      "name": "chunky knit blanket",
+      "price": "price on enquiry",
+      "description": "made to the size you need, in the colour you choose. warm, weighty and impossible to give back.",
+      "imageSource": "",
+      "imageAlt": "",
+      "badge": "made to order",
+      "collection": "chunky-knits",
+      "featured": true
+    },
+    {
+      "id": "knitted-stuffed-animals",
+      "name": "knitted stuffed animals",
+      "price": "price on enquiry",
+      "description": "soft, squishy and sized for small arms. lovely as a new baby gift.",
+      "imageSource": "",
+      "imageAlt": "",
+      "badge": "made to order",
+      "collection": "chunky-knits",
+      "featured": true
+    },
+    {
+      "id": "knitted-gnomes",
+      "name": "knitted gnomes",
+      "price": "$15 – $25",
+      "description": "three sizes, chunky knit hats, absolutely no faces. a christmas favourite.",
+      "imageSource": "/src/assets/images/bandhan/products/christmas-gnomes.jpg",
+      "imageAlt": "three chunky knit gnomes with red and green pom pom hats",
+      "badge": "",
+      "collection": "chunky-knits",
+      "featured": true
+    },
+    {
+      "id": "individual-macrame-doll",
+      "name": "individual macrame doll",
+      "price": "$25",
+      "description": "a little hanging doll, made in the colours you choose.",
+      "imageSource": "/src/assets/images/bandhan/products/macrame-doll-lilac.jpg",
+      "imageAlt": "a macrame doll with dusty pink and taupe cotton fringing",
+      "badge": "",
+      "collection": "macrame",
+      "featured": true
+    },
+    {
+      "id": "framed-doll",
+      "name": "framed doll",
+      "price": "$30",
+      "description": "a doll mounted in a white frame, with a name in beads.",
+      "imageSource": "/src/assets/images/bandhan/products/framed-doll.jpg",
+      "imageAlt": "a pink macrame doll mounted in a white picture frame with a beaded name banner",
+      "badge": "personalised",
+      "collection": "macrame",
+      "featured": true
+    },
+    {
+      "id": "posable-doll",
+      "name": "posable doll",
+      "price": "$30",
+      "description": "bendy arms and legs, so she can sit wherever you like.",
+      "imageSource": "/src/assets/images/bandhan/products/posable-doll.jpg",
+      "imageAlt": "a posable macrame doll in a pink petal skirt sitting on a wooden table",
+      "badge": "",
+      "collection": "macrame",
+      "featured": false
+    },
+    {
+      "id": "standing-doll",
+      "name": "standing doll",
+      "price": "$35",
+      "description": "stands on her own, straw hat and tiny basket included.",
+      "imageSource": "/src/assets/images/bandhan/products/standing-doll.jpg",
+      "imageAlt": "a standing macrame doll in a blue dress wearing a woven sun hat",
+      "badge": "",
+      "collection": "macrame",
+      "featured": true
+    },
+    {
+      "id": "large-wall-hanging",
+      "name": "large wall hanging",
+      "price": "$60",
+      "description": "two figures in a gold hoop — our most given wedding gift.",
+      "imageSource": "/src/assets/images/bandhan/products/forever-love-wall-hanging.jpg",
+      "imageAlt": "a macrame wall hanging of two figures holding a heart, framed in a gold hoop",
+      "badge": "",
+      "collection": "macrame",
+      "featured": true
+    },
+    {
+      "id": "angel-tree-hanging",
+      "name": "individual angel tree hanging",
+      "price": "$25",
+      "description": "cotton fringing, wooden wings and a tiny wooden heart.",
+      "imageSource": "/src/assets/images/bandhan/products/angel-tree-hanging.jpg",
+      "imageAlt": "a small macrame angel with wooden wings, hanging from cotton cord",
+      "badge": "",
+      "collection": "christmas",
+      "featured": false
+    },
+    {
+      "id": "small-christmas-ornaments",
+      "name": "small christmas ornaments",
+      "price": "$5",
+      "description": "little wreaths for the tree, or for tying onto a gift.",
+      "imageSource": "/src/assets/images/bandhan/products/christmas-ornaments.jpg",
+      "imageAlt": "six small macrame wreath ornaments in cream, blue, green and navy",
+      "badge": "stocking filler",
+      "collection": "christmas",
+      "featured": false
+    },
+    {
+      "id": "tree-ornament-set",
+      "name": "tree ornament set",
+      "price": "$40",
+      "description": "an angel and two wreaths, boxed together as a set.",
+      "imageSource": "/src/assets/images/bandhan/products/tree-ornament-set.jpg",
+      "imageAlt": "a macrame angel and two woven wreaths arranged on a white background",
+      "badge": "set of three",
+      "collection": "christmas",
+      "featured": false
+    },
+    {
+      "id": "large-angel-wall-hanging",
+      "name": "large angel wall hanging",
+      "price": "$60",
+      "description": "wide cotton wings on a gold hoop, for a door or a wall.",
+      "imageSource": "/src/assets/images/bandhan/products/angel-wall-hanging.jpg",
+      "imageAlt": "a large macrame angel wall hanging with wide cream wings",
+      "badge": "",
+      "collection": "christmas",
+      "featured": true
+    }
+  ]
+}

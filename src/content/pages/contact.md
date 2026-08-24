@@ -2,8 +2,8 @@
 _schema: default
 title: get in touch
 description: >-
-  email info@bandhan.co.nz or message us on instagram or facebook to order
-  handmade macrame and chunky knit pieces.
+  email info@bandhan.co.nz or message us on instagram or facebook to order hand
+  knitted blankets, stuffed animals and handmade macrame pieces.
 pageSections:
   - _component: page-sections/heroes/hero-center
     eyebrow: get in touch
@@ -152,8 +152,9 @@ pageSections:
       can come back with a real answer.
 
 
-      **which piece** you are after · **colours** you have in mind · **any
-      names or dates** to add · **when you need it by** · **where it is going**
+      **which piece** you are after · **colours** you have in mind · **what size**
+      for a blanket or throw · **any names or dates** to add · **when you need it
+      by** · **where it is going**
     buttonSections:
       - _component: building-blocks/core-elements/button
         text: email us now

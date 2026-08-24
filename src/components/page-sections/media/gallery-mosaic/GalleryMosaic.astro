@@ -163,7 +163,14 @@ const mosaicStyle = [
       }
 
       > figcaption {
-        background: linear-gradient(to top, rgba(46, 37, 33, 0.72), transparent);
+        /* The photos are mostly white, so the scrim has to be dark enough to
+           hold cream text at 4.5:1 on its own. */
+        background: linear-gradient(
+          to top,
+          rgba(46, 37, 33, 0.92) 0%,
+          rgba(46, 37, 33, 0.78) 50%,
+          rgba(46, 37, 33, 0) 100%
+        );
         border-end-end-radius: var(--radius-lg);
         border-end-start-radius: var(--radius-lg);
         bottom: 0;

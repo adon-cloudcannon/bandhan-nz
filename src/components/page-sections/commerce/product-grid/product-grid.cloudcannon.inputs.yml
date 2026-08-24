@@ -19,6 +19,31 @@ subtext:
     underline: false
     bulletedlist: false
     numberedlist: false
+collectionId:
+  type: select
+  label: Collection
+  comment: Show every product in this collection, in catalogue order. Products live in the Products data file.
+  options:
+    values: _select_data.productCollections
+featuredOnly:
+  type: switch
+  comment: Show only products marked as featured in the Products data file. Ignored when a collection is chosen.
+productIds:
+  type: array
+  label: Specific products
+  comment: Hand-pick products by id, in the order you want them. Overrides the collection and featured settings.
+productIds[*]:
+  type: select
+  comment: Which product to show.
+  options:
+    values: _select_data.productIds
+limit:
+  type: number
+  comment: Most products to show. Leave at 0 to show all of them.
+randomize:
+  type: switch
+  label: Rotate on each visit
+  comment: Show a random handful from the selection, reshuffled every time the page loads. Set a limit for this to do anything.
 enquiryEmail:
   type: email
   comment: Enquiries open the visitor's mail app addressed here, with the product name as the subject. Leave empty to hide the enquiry links.
@@ -74,7 +99,7 @@ buttonSections:
     structures: _structures.buttonSections
 products:
   type: array
-  label: Products
-  comment: The pieces shown in this collection.
+  label: One-off products
+  comment: Products written out here instead of coming from the Products data file. Overrides every setting above. Leave empty unless you need a one-off that does not belong in the catalogue.
   options:
     structures: _structures.productGridItems

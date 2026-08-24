@@ -1,0 +1,66 @@
+products:
+  style: modal
+  values:
+    - label: Product
+      icon: storefront
+      description: One piece in the catalogue. Page sections pull from here, so a price only ever needs changing once.
+      value:
+        id: ""
+        name: ""
+        price: ""
+        description: ""
+        imageSource: ""
+        imageAlt: ""
+        badge: ""
+        collection: chunky-knits
+        featured: false
+      preview:
+        image:
+          - key: imageSource
+        text:
+          - key: name
+          - Product
+        subtext:
+          - key: price
+          - Add a price
+      picker_preview:
+        text: Product
+        subtext: One piece in the catalogue.
+        icon: storefront
+      _inputs:
+        id:
+          type: text
+          comment: Short unique handle, lowercase with hyphens. Used to reference this product from a page section — changing it breaks those references.
+        name:
+          type: text
+          comment: Name of the piece, as shown on the card.
+        price:
+          type: text
+          comment: 'Price exactly as you want it shown, for example "$25", "$15 – $25" or "price on enquiry".'
+        description:
+          type: text
+          comment: One short line about the piece.
+        imageSource:
+          type: image
+          comment: Photo of the piece. Square photos look best. Leave empty and the card shows a "photo coming soon" placeholder.
+          options:
+            paths:
+              uploads: src/assets/images/bandhan/products
+              static: ""
+            resize_style: contain
+            width: 1600
+            height: 1600
+        imageAlt:
+          type: textarea
+          comment: Alt text describing the photo. Falls back to the product name.
+        badge:
+          type: text
+          comment: 'Optional corner label, for example "made to order" or "new".'
+        collection:
+          type: select
+          comment: Which collection this product belongs to. Shop sections show a whole collection at a time.
+          options:
+            values: _select_data.productCollections
+        featured:
+          type: switch
+          comment: Include this product in the rotating favourites on the home page.

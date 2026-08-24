@@ -3,27 +3,38 @@ import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Heading from "@core-elements/heading/Heading.astro";
 import SimpleText from "@core-elements/simple-text/SimpleText.astro";
 import Text from "@core-elements/text/Text.astro";
+import productsData from "@data/products.json";
 import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 import Grid from "@wrappers/grid/Grid.astro";
 import ProductCard from "./ProductCard.astro";
+import ProductRotationScript from "./ProductRotationScript.astro";
 
-type ProductProps = Record<string, unknown>;
+type Product = Record<string, unknown> & {
+  id?: string;
+  collection?: string;
+  featured?: boolean;
+};
 
 const {
   eyebrow = "",
   heading = "",
   subtext = "",
-  products = [],
+  collectionId = "",
+  featuredOnly = false,
+  productIds = [] as string[],
+  products = [] as Product[],
+  limit = 0,
+  randomize = false,
   enquiryEmail = "",
   enquiryText = "enquire",
   footnote = "",
   buttonSections = [],
-  minItemWidth = 260,
-  maxItemWidth = 340,
+  minItemWidth = 280,
+  maxItemWidth = 400,
   gap = "lg",
   alignmentHorizontal = "center",
   sectionLabel,
-  maxContentWidth = "2xl",
+  maxContentWidth = "xl",
   paddingHorizontal = "lg",
   paddingVertical = "4xl",
   colorScheme = "inherit",
@@ -34,6 +45,55 @@ const {
   _component,
   ...htmlAttributes
 } = Astro.props;
+
+const catalogue = (productsData.products ?? []) as Product[];
+
+/**
+ * Every product lives once, in `src/data/products.json`. A section picks from
+ * that catalogue; the inline `products` array stays supported as an escape
+ * hatch for one-offs that do not belong in the catalogue.
+ */
+function resolvePool(): Product[] {
+  if (products.length > 0) return products;
+  if (productIds.length > 0) {
+    return productIds
+      .map((id: string) => catalogue.find((product) => product.id === id))
+      .filter(Boolean) as Product[];
+  }
+  if (collectionId) return catalogue.filter((product) => product.collection === collectionId);
+  if (featuredOnly) return catalogue.filter((product) => product.featured);
+  return catalogue;
+}
+
+const pool = resolvePool();
+const shown = limit > 0 ? Math.min(limit, pool.length) : pool.length;
+
+/**
+ * When rotating, the whole pool is rendered and all but `shown` are hidden, so
+ * a small inline script can reshuffle on each visit. Capped so a large
+ * catalogue cannot quietly balloon the page.
+ */
+const ROTATION_POOL_MAX = 12;
+const rendered = randomize ? pool.slice(0, ROTATION_POOL_MAX) : pool.slice(0, shown);
+
+/** Build-time pick. Also what a visitor without JavaScript sees. */
+const visible = new Set<number>();
+
+if (randomize && shown < rendered.length) {
+  const order = rendered.map((_, index) => index);
+
+  for (let i = order.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+
+    [order[i], order[j]] = [order[j], order[i]];
+  }
+
+  order.slice(0, shown).forEach((index) => visible.add(index));
+} else {
+  rendered.forEach((_, index) => visible.add(index));
+}
+
+const isRotating = randomize && shown < rendered.length;
 ---
 
 <CustomSection
@@ -75,14 +135,16 @@ const {
     maxItemWidth={maxItemWidth}
     class="product-grid-grid"
     data-children-prop="products"
+    data-product-rotate={isRotating ? String(shown) : undefined}
   >
     {
-      products.map((product: ProductProps) => (
+      rendered.map((product: Product, index: number) => (
         <ProductCard
           data-id="page-sections/commerce/product-grid/product-card"
           data-editable="array-item"
           enquiryEmail={enquiryEmail}
           enquiryText={enquiryText}
+          hidden={!visible.has(index)}
           {...product}
         />
       ))
@@ -101,6 +163,8 @@ const {
     data-children-prop="buttonSections"
   />
 </CustomSection>
+
+{isRotating && <ProductRotationScript />}
 
 <style is:global>
   @layer page-sections {

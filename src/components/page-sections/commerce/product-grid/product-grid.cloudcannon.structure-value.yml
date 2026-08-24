@@ -7,6 +7,11 @@ value:
   eyebrow: ""
   heading: Heading text
   subtext: ""
+  collectionId: ""
+  featuredOnly: false
+  productIds: []
+  limit: 0
+  randomize: false
   enquiryEmail: info@bandhan.co.nz
   enquiryText: enquire
   footnote: ""

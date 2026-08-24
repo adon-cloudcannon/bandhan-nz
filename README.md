@@ -9,6 +9,7 @@ Built on the CloudCannon [Astro Component Starter](https://github.com/CloudCanno
 | What                                                   | Where                                                    |
 | ------------------------------------------------------ | -------------------------------------------------------- |
 | Page content (home, shop, gallery, our story, contact) | `src/content/pages/*.md`                                 |
+| **The product catalogue**                              | `src/data/products.json`                                 |
 | Header, footer and SEO settings                        | `src/data/*.json`                                        |
 | Product photos                                         | `src/assets/images/bandhan/products/`                    |
 | Logo mark (light and dark)                             | `src/assets/images/bandhan/`                             |
@@ -20,6 +21,25 @@ Two page sections were built for this site and follow the starter's three-file p
 
 - `src/components/page-sections/commerce/product-grid/` — product cards with prices and a one-click email enquiry link
 - `src/components/page-sections/media/gallery-mosaic/` — photo mosaic with optional two-column feature tiles
+
+## The product catalogue
+
+Every product lives exactly once, in `src/data/products.json`. Page sections choose which products to show rather than restating them, so a price is only ever edited in one place.
+
+A `product-grid` section picks its products in one of four ways, in this order of precedence:
+
+| Setting                     | Shows                                                                      |
+| --------------------------- | -------------------------------------------------------------------------- |
+| `products` (array)          | One-off products written inline. Escape hatch; overrides everything below. |
+| `productIds` (array of ids) | Exactly those products, in the order listed.                               |
+| `collectionId`              | Every product whose `collection` matches, in catalogue order.              |
+| `featuredOnly`              | Every product with `featured: true`.                                       |
+
+Then `limit` caps how many are shown, and `randomize` makes it a rotating selection — the home page's favourites are `featuredOnly` + `limit: 3` + `randomize`. Rotation renders the whole pool and marks all but the chosen few `hidden`, so a visitor without JavaScript still sees a valid selection and there is no layout shift.
+
+Array order in `products.json` is display order — drag to reorder in CloudCannon. A product with an empty `imageSource` renders a "photo coming soon" placeholder instead of an empty frame.
+
+Adding or renaming a collection means updating `_select_data.productCollections` in `cloudcannon.config.yml` so it appears in the editor's dropdown (and `_select_data.productIds` if you want the new product pickable by id).
 
 The journal (`/blog/`) is wired up but empty, and is not linked from the navigation. Add an `.mdx` file to `src/content/blog/` to start it.
 
