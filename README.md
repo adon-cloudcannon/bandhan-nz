@@ -1,4 +1,4 @@
-# bandhan
+# bandhan test
 
 The website for [Bandhan](https://bandhan.co.nz) — handmade macrame and chunky knit pieces made in Aotearoa New Zealand.
 
