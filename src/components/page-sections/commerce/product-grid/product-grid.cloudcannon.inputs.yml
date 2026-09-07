@@ -50,6 +50,10 @@ enquiryEmail:
 enquiryText:
   type: text
   comment: Wording for the enquiry link on each card.
+showPhotoGallery:
+  type: switch
+  label: Photo sets on cards
+  comment: When a product has more than one photo, let visitors click through them on the card. Turn off to show only the first photo.
 footnote:
   type: markdown
   comment: Optional small print below the grid, for shipping or turnaround notes.

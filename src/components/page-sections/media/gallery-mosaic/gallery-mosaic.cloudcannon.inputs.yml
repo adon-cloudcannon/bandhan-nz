@@ -15,6 +15,36 @@ subtext:
     link: true
     bulletedlist: false
     numberedlist: false
+collectionId:
+  type: select
+  label: Collection
+  comment: Show photos from every product in this collection. Products live in the Products data file.
+  options:
+    values: _select_data.productCollections
+featuredOnly:
+  type: switch
+  comment: Use only products marked as featured. Ignored when a collection is chosen.
+productIds:
+  type: array
+  label: Specific products
+  comment: Hand-pick products by id, in the order you want them.
+productIds[*]:
+  type: select
+  comment: Which product to show.
+  options:
+    values: _select_data.productIds
+perProduct:
+  type: number
+  comment: Most photos to take from each product. Leave at 0 for all of them. Photos are dealt out one product at a time, so a product with several photos does not clump together.
+limit:
+  type: number
+  comment: Most tiles to show in total. Leave at 0 for no limit.
+featureEvery:
+  type: number
+  comment: Give every nth tile the big two-by-two treatment — 5 makes the first and sixth tiles large. Leave at 0 for an even grid.
+showCaptions:
+  type: switch
+  comment: Caption each tile with its product name. Only applies to catalogue photos.
 columns:
   type: select
   comment: Number of columns on wide screens. Fewer columns means larger photos.
@@ -52,8 +82,8 @@ alignmentHorizontal:
         name: Center
 images:
   type: array
-  label: Photos
-  comment: Photos shown in the mosaic.
+  label: One-off photos
+  comment: Photos listed here instead of coming from the Products data file. Overrides every setting above. Leave empty unless the gallery is not about products.
   options:
     structures: _structures.galleryMosaicImages
 buttonSections:

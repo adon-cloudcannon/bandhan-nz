@@ -4,6 +4,7 @@ import Heading from "@core-elements/heading/Heading.astro";
 import Image from "@core-elements/image/Image.astro";
 import SimpleText from "@core-elements/simple-text/SimpleText.astro";
 import Text from "@core-elements/text/Text.astro";
+import { galleryPhotos, selectProducts, type Product } from "@utils/products";
 import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 
 type GalleryImage = {
@@ -20,6 +21,14 @@ const {
   heading = "",
   subtext = "",
   images = [] as GalleryImage[],
+  collectionId = "",
+  featuredOnly = false,
+  productIds = [] as string[],
+  products = [] as Product[],
+  perProduct = 0,
+  limit = 0,
+  featureEvery = 0,
+  showCaptions = true,
   buttonSections = [],
   columns = "3",
   gap = "md",
@@ -36,6 +45,42 @@ const {
   _component,
   ...htmlAttributes
 } = Astro.props;
+
+/**
+ * Photos either come from the catalogue (`src/data/products.json`) or are
+ * listed inline. Inline wins, so a one-off gallery can still be hand-built.
+ */
+const fromCatalogue =
+  images.length > 0
+    ? []
+    : galleryPhotos(
+        selectProducts({ products, productIds, collectionId, featuredOnly }),
+        perProduct
+      ).map((photo) => ({
+        source: photo.source,
+        alt: photo.alt,
+        caption: showCaptions ? photo.productName : "",
+      }));
+
+const allTiles: GalleryImage[] = images.length > 0 ? images : fromCatalogue;
+const tiles = limit > 0 ? allTiles.slice(0, limit) : allTiles;
+
+/**
+ * Inline photos carry their own `feature` switch. Catalogue-driven galleries
+ * have no such flag, so `featureEvery` sets the rhythm instead — every nth
+ * tile takes the big two-by-two treatment.
+ *
+ * The last tile is never a feature: a two-by-two span needs smaller tiles
+ * after it to flow around the space it leaves, and at the end of the grid
+ * there are none, so it would punch a hole in the bottom corner.
+ */
+function isFeature(image: GalleryImage, index: number): boolean {
+  const isLast = index === tiles.length - 1;
+
+  if (image.feature) return !isLast;
+
+  return featureEvery > 0 && index % featureEvery === 0 && !isLast;
+}
 
 const mosaicStyle = [
   `--mosaic-columns: ${columns}`,
@@ -83,9 +128,9 @@ const mosaicStyle = [
     data-prop="images"
   >
     {
-      images.map((image: GalleryImage) => (
+      tiles.map((image: GalleryImage, index: number) => (
         <li
-          class:list={["mosaic-item", image.feature && "is-feature"]}
+          class:list={["mosaic-item", isFeature(image, index) && "is-feature"]}
           data-editable="array-item"
         >
           <figure class="mosaic-figure">

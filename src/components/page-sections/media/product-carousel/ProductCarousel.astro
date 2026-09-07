@@ -1,0 +1,108 @@
+---
+import CustomSection from "@builders/custom-section/CustomSection.astro";
+import Heading from "@core-elements/heading/Heading.astro";
+import SimpleText from "@core-elements/simple-text/SimpleText.astro";
+import Text from "@core-elements/text/Text.astro";
+import { galleryPhotos, selectProducts, type Product } from "@utils/products";
+import ImageCarousel from "@wrappers/image-carousel/ImageCarousel.astro";
+
+const {
+  eyebrow = "",
+  heading = "",
+  subtext = "",
+  collectionId = "",
+  featuredOnly = false,
+  productIds = [] as string[],
+  products = [] as Product[],
+  perProduct = 1,
+  limit = 0,
+  aspectRatio = "square",
+  showArrows = true,
+  loop = true,
+  alignmentHorizontal = "center",
+  sectionLabel,
+  maxContentWidth = "lg",
+  paddingHorizontal = "lg",
+  paddingVertical = "3xl",
+  colorScheme = "inherit",
+  backgroundColor,
+  background,
+  class: className,
+  useDefaultEditableBinding = false,
+  _component,
+  ...htmlAttributes
+} = Astro.props;
+
+/**
+ * Wraps the Image Carousel so a big-photo view can be driven straight from the
+ * catalogue (`src/data/products.json`) instead of restating photos and alt text.
+ * `perProduct` defaults to 1 so one product with many photos does not take over
+ * the whole carousel.
+ */
+const photos = galleryPhotos(
+  selectProducts({ products, productIds, collectionId, featuredOnly }),
+  perProduct
+);
+const carouselImages = (limit > 0 ? photos.slice(0, limit) : photos).map((photo) => ({
+  source: photo.source,
+  alt: photo.alt,
+  positionVertical: "center",
+  positionHorizontal: "center",
+}));
+---
+
+<CustomSection
+  class:list={["product-carousel", className]}
+  label={sectionLabel}
+  maxContentWidth={maxContentWidth}
+  paddingHorizontal={paddingHorizontal}
+  paddingVertical={paddingVertical}
+  colorScheme={colorScheme}
+  backgroundColor={backgroundColor}
+  background={background}
+  useDefaultEditableBinding={useDefaultEditableBinding}
+  {...htmlAttributes}
+>
+  <SimpleText
+    alignmentHorizontal={alignmentHorizontal}
+    class="eyebrow"
+    data-prop="eyebrow"
+    text={eyebrow}
+  />
+  <Heading
+    level="h2"
+    size="lg"
+    alignmentHorizontal={alignmentHorizontal}
+    data-prop="heading"
+  >
+    {heading}
+  </Heading>
+  <Text
+    class="product-carousel-subtext subtext"
+    alignmentHorizontal={alignmentHorizontal}
+    data-prop="subtext"
+    text={subtext}
+  />
+  <ImageCarousel
+    label={sectionLabel || "bandhan pieces"}
+    images={carouselImages}
+    showArrows={showArrows}
+    loop={loop}
+    aspectRatio={aspectRatio}
+    sizes="(max-width: 768px) 100vw, 768px"
+    widths={[480, 768, 1200]}
+  />
+</CustomSection>
+
+<style is:global>
+  @layer page-sections {
+    .product-carousel-subtext {
+      margin-inline: auto;
+      max-width: 60ch;
+    }
+
+    .product-carousel .image-carousel {
+      margin-top: var(--spacing-2xl);
+    }
+  }
+</style>

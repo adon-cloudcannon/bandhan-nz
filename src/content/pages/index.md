@@ -10,12 +10,11 @@ pageSections:
     heading: hand knitted, hand knotted, made slowly
     subtext: >-
       chunky knit blankets and soft stuffed animals, alongside macrame dolls,
-      angels and wall hangings — made in small batches, from good yarn and soft
-      cotton rope, with a lot of heart.
-    imageSource: /src/assets/images/bandhan/products/forever-love-wall-hanging.jpg
+      angels and wall hangings — made in small batches, from good yarn and soft rope, with a lot of heart.
+    imageSource: /src/assets/images/bandhan/products/blanket-taupe-tag.jpg
     imageAlt: >-
-      a macrame wall hanging of two figures holding a heart, framed in a gold
-      hoop
+      a folded taupe and cream chunky knit blanket with the bandhan swing tag
+      attached
     imageAspectRatio: square
     buttonSections:
       - _component: building-blocks/core-elements/button
@@ -58,12 +57,11 @@ pageSections:
       - _component: building-blocks/core-elements/text
         text: >-
           knitted by hand with chunky yarn — no needles, just hands and a lot of
-          wool. blankets and throws made to the size and colour you want, and
+          love. blankets and throws made to the size and colour you want, and
           soft stuffed animals for the smaller members of the household.
 
 
-          because each one is made from scratch once you order, they take a
-          little while. worth the wait, we think.
+          each one is made from scratch once you order. worth the wait, we think.
         alignmentHorizontal: center
         size: lg
       - _component: building-blocks/wrappers/button-group
@@ -163,27 +161,10 @@ pageSections:
     eyebrow: from the workbasket
     heading: a little look at what we make
     subtext: ''
-    images:
-      - source: /src/assets/images/bandhan/products/angel-wall-hanging.jpg
-        alt: a large macrame angel wall hanging with wide cream wings
-        caption: ''
-        feature: true
-      - source: /src/assets/images/bandhan/products/christmas-gnomes.jpg
-        alt: three chunky knit gnomes with red and green pom pom hats
-        caption: ''
-        feature: false
-      - source: /src/assets/images/bandhan/products/angel-tree-hanging.jpg
-        alt: a small macrame angel with wooden wings, hanging from cotton cord
-        caption: ''
-        feature: false
-      - source: /src/assets/images/bandhan/products/posable-doll.jpg
-        alt: a posable macrame doll in a pink petal skirt sitting on a wooden table
-        caption: ''
-        feature: false
-      - source: /src/assets/images/bandhan/products/christmas-ornaments.jpg
-        alt: six small macrame wreath ornaments in cream, blue, green and navy
-        caption: ''
-        feature: false
+    perProduct: 1
+    limit: 5
+    featureEvery: 5
+    showCaptions: false
     buttonSections:
       - _component: building-blocks/core-elements/button
         text: see the full gallery

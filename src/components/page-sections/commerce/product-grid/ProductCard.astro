@@ -6,15 +6,19 @@ import SimpleText from "@core-elements/simple-text/SimpleText.astro";
 import Card from "@wrappers/card/Card.astro";
 import GridItem from "@wrappers/grid/GridItem.astro";
 
+type Photo = { source: string; alt?: string };
+
 const {
   name = "",
   price = "",
   description = "",
+  photos = [] as Photo[],
   imageSource = "",
   imageAlt = "",
   badge = "",
   enquiryEmail = "",
   enquiryText = "enquire",
+  showPhotoGallery = true,
   class: className,
   useDefaultEditableBinding: _useDefaultEditableBinding = false,
   _component,
@@ -22,6 +26,7 @@ const {
   id: _id,
   collection: _collection,
   featured: _featured,
+  images: _images,
   ...htmlAttributes
 } = Astro.props;
 
@@ -30,8 +35,18 @@ const enquiryLink = enquiryEmail
   ? `mailto:${enquiryEmail}?subject=${encodeURIComponent(`enquiry: ${name}`)}`
   : "";
 
+/** `photos` is the catalogue path; the single-image props cover inline one-offs. */
+const allPhotos: Photo[] =
+  photos.length > 0
+    ? photos
+    : imageSource && String(imageSource).trim() !== ""
+      ? [{ source: imageSource, alt: imageAlt }]
+      : [];
+
 /** A piece can be listed before it has been photographed. */
-const hasPhoto = typeof imageSource === "string" && imageSource.trim() !== "";
+const hasPhoto = allPhotos.length > 0;
+const shownPhotos = showPhotoGallery ? allPhotos : allPhotos.slice(0, 1);
+const isGallery = shownPhotos.length > 1;
 ---
 
 <GridItem
@@ -45,16 +60,95 @@ const hasPhoto = typeof imageSource === "string" && imageSource.trim() !== "";
     rounded
     backgroundColor="base"
   >
-    <div class:list={["product-media", !hasPhoto && "is-awaiting-photo"]}>
+    <div
+      class:list={["product-media", !hasPhoto && "is-awaiting-photo"]}
+      data-product-gallery={isGallery ? "" : undefined}
+    >
       {
         hasPhoto ? (
-          <Image
-            source={imageSource}
-            alt={imageAlt || name}
-            aspectRatio="square"
-            data-prop-src="imageSource"
-            data-prop-alt="imageAlt"
-          />
+          <Fragment>
+            <div
+              class="product-media-track"
+              tabindex={isGallery ? "0" : undefined}
+              role={isGallery ? "group" : undefined}
+              aria-label={isGallery ? `photos of ${name}` : undefined}
+            >
+              {shownPhotos.map((photo, index) => (
+                <div class="product-media-slide">
+                  <Image
+                    source={photo.source}
+                    alt={photo.alt || name}
+                    aspectRatio="square"
+                    priority={false}
+                    sizes="(max-width: 640px) 92vw, 400px"
+                    widths={[400, 800]}
+                    data-prop-src={index === 0 ? "imageSource" : undefined}
+                    data-prop-alt={index === 0 ? "imageAlt" : undefined}
+                  />
+                </div>
+              ))}
+            </div>
+            {isGallery && (
+              <Fragment>
+                <button
+                  type="button"
+                  class="product-media-nav prev"
+                  aria-label={`previous photo of ${name}`}
+                  hidden
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      d="M15 5 8 12l7 7"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  class="product-media-nav next"
+                  aria-label={`next photo of ${name}`}
+                  hidden
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="18"
+                    height="18"
+                    aria-hidden="true"
+                    focusable="false"
+                  >
+                    <path
+                      d="M9 5l7 7-7 7"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </button>
+                <div class="product-media-dots">
+                  {shownPhotos.map((_photo, index) => (
+                    <button
+                      type="button"
+                      class="product-media-dot"
+                      aria-label={`photo ${index + 1} of ${shownPhotos.length} of ${name}`}
+                      aria-current={index === 0 ? "true" : undefined}
+                    />
+                  ))}
+                </div>
+              </Fragment>
+            )}
+          </Fragment>
         ) : (
           <span
             class="product-photo-pending"
@@ -178,6 +272,36 @@ const hasPhoto = typeof imageSource === "string" && imageSource.trim() !== "";
       background-color: var(--color-bg-accent);
       position: relative;
 
+      &.is-awaiting-photo {
+        aspect-ratio: var(--ratio-square);
+        display: grid;
+        place-items: center;
+      }
+    }
+
+    /* A horizontal scroll-snap strip: swipeable on touch and scrollable with
+       the keyboard on its own, with the buttons below as an enhancement. */
+    .product-media-track {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--color-focus-ring);
+        outline-offset: -2px;
+      }
+    }
+
+    .product-media-slide {
+      flex: 0 0 100%;
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+
       > .image {
         /* Images carry a default top margin; the photo sits flush here. */
         margin-top: 0;
@@ -187,11 +311,100 @@ const hasPhoto = typeof imageSource === "string" && imageSource.trim() !== "";
         display: block;
         width: 100%;
       }
+    }
 
-      &.is-awaiting-photo {
-        aspect-ratio: var(--ratio-square);
-        display: grid;
-        place-items: center;
+    .product-media-nav {
+      align-items: center;
+      background-color: color-mix(in srgb, var(--cream-50) 88%, transparent);
+      border: 0;
+      border-radius: var(--radius-full);
+      color: var(--ink-900);
+      cursor: pointer;
+      display: flex;
+      height: 2rem;
+      justify-content: center;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      transition:
+        opacity var(--animation-normal) ease-in-out,
+        background-color var(--animation-normal) ease-in-out;
+      width: 2rem;
+      z-index: var(--layer-1);
+
+      &.prev {
+        inset-inline-start: var(--spacing-sm);
+      }
+
+      &.next {
+        inset-inline-end: var(--spacing-sm);
+      }
+
+      &:hover {
+        background-color: var(--cream-50);
+      }
+
+      &:disabled {
+        cursor: default;
+        opacity: 0 !important;
+      }
+    }
+
+    /* Revealed on hover, and always for anyone navigating by keyboard or touch. */
+    .product-card:hover .product-media-nav:not(:disabled),
+    .product-media:focus-within .product-media-nav:not(:disabled) {
+      opacity: 1;
+    }
+
+    @media (hover: none) {
+      .product-media-nav:not(:disabled) {
+        opacity: 1;
+      }
+    }
+
+    /* The dots sit on their own scrim: photographs here are mostly white, and
+       pale dots vanished against them. */
+    .product-media-dots {
+      backdrop-filter: blur(4px);
+      background-color: color-mix(in srgb, var(--ink-900) 42%, transparent);
+      border-radius: var(--radius-full);
+      bottom: var(--spacing-sm);
+      display: flex;
+      gap: 0.3rem;
+      inset-inline: 0;
+      justify-content: center;
+      margin-inline: auto;
+      padding: 0.3rem 0.4rem;
+      position: absolute;
+      width: fit-content;
+      z-index: var(--layer-1);
+    }
+
+    .product-media-dot {
+      background-color: color-mix(in srgb, var(--cream-50) 45%, transparent);
+      border: 0;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      height: 0.45rem;
+      padding: 0;
+      transition: background-color var(--animation-normal) ease-in-out;
+      width: 0.45rem;
+
+      &[aria-current="true"] {
+        background-color: var(--cream-50);
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--cream-50);
+        outline-offset: 2px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .product-media-nav,
+      .product-media-dot {
+        transition: none;
       }
     }
 

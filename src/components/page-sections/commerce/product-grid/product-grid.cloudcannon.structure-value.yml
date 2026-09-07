@@ -14,6 +14,7 @@ value:
   randomize: false
   enquiryEmail: info@bandhan.co.nz
   enquiryText: enquire
+  showPhotoGallery: true
   footnote: ""
   buttonSections: []
   products: []

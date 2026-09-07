@@ -3,17 +3,12 @@ import CustomSection from "@builders/custom-section/CustomSection.astro";
 import Heading from "@core-elements/heading/Heading.astro";
 import SimpleText from "@core-elements/simple-text/SimpleText.astro";
 import Text from "@core-elements/text/Text.astro";
-import productsData from "@data/products.json";
+import { productPhotos, selectProducts, type Product } from "@utils/products";
 import ButtonGroup from "@wrappers/button-group/ButtonGroup.astro";
 import Grid from "@wrappers/grid/Grid.astro";
 import ProductCard from "./ProductCard.astro";
+import ProductGalleryScript from "./ProductGalleryScript.astro";
 import ProductRotationScript from "./ProductRotationScript.astro";
-
-type Product = Record<string, unknown> & {
-  id?: string;
-  collection?: string;
-  featured?: boolean;
-};
 
 const {
   eyebrow = "",
@@ -27,6 +22,7 @@ const {
   randomize = false,
   enquiryEmail = "",
   enquiryText = "enquire",
+  showPhotoGallery = true,
   footnote = "",
   buttonSections = [],
   minItemWidth = 280,
@@ -46,34 +42,23 @@ const {
   ...htmlAttributes
 } = Astro.props;
 
-const catalogue = (productsData.products ?? []) as Product[];
-
-/**
- * Every product lives once, in `src/data/products.json`. A section picks from
- * that catalogue; the inline `products` array stays supported as an escape
- * hatch for one-offs that do not belong in the catalogue.
- */
-function resolvePool(): Product[] {
-  if (products.length > 0) return products;
-  if (productIds.length > 0) {
-    return productIds
-      .map((id: string) => catalogue.find((product) => product.id === id))
-      .filter(Boolean) as Product[];
-  }
-  if (collectionId) return catalogue.filter((product) => product.collection === collectionId);
-  if (featuredOnly) return catalogue.filter((product) => product.featured);
-  return catalogue;
-}
-
-const pool = resolvePool();
+const pool = selectProducts({ products, productIds, collectionId, featuredOnly });
 const shown = limit > 0 ? Math.min(limit, pool.length) : pool.length;
 
 /**
  * When rotating, the whole pool is rendered and all but `shown` are hidden, so
  * a small inline script can reshuffle on each visit. Capped so a large
- * catalogue cannot quietly balloon the page.
+ * catalogue cannot quietly balloon the page — and the build says so rather
+ * than dropping products silently.
  */
-const ROTATION_POOL_MAX = 12;
+const ROTATION_POOL_MAX = 24;
+
+if (randomize && pool.length > ROTATION_POOL_MAX) {
+  console.warn(
+    `[product-grid] ${pool.length} products match this rotating section but only the first ${ROTATION_POOL_MAX} can appear. Narrow the selection, or raise ROTATION_POOL_MAX in ProductGrid.astro.`
+  );
+}
+
 const rendered = randomize ? pool.slice(0, ROTATION_POOL_MAX) : pool.slice(0, shown);
 
 /** Build-time pick. Also what a visitor without JavaScript sees. */
@@ -94,6 +79,10 @@ if (randomize && shown < rendered.length) {
 }
 
 const isRotating = randomize && shown < rendered.length;
+
+/** Only ship the photo-switcher script if some card actually has a set. */
+const hasPhotoGallery =
+  showPhotoGallery && rendered.some((product) => productPhotos(product).length > 1);
 ---
 
 <CustomSection
@@ -142,10 +131,12 @@ const isRotating = randomize && shown < rendered.length;
         <ProductCard
           data-id="page-sections/commerce/product-grid/product-card"
           data-editable="array-item"
+          {...product}
+          photos={productPhotos(product)}
+          showPhotoGallery={showPhotoGallery}
           enquiryEmail={enquiryEmail}
           enquiryText={enquiryText}
           hidden={!visible.has(index)}
-          {...product}
         />
       ))
     }
@@ -165,6 +156,7 @@ const isRotating = randomize && shown < rendered.length;
 </CustomSection>
 
 {isRotating && <ProductRotationScript />}
+{hasPhotoGallery && <ProductGalleryScript />}
 
 <style is:global>
   @layer page-sections {

@@ -58,13 +58,15 @@ pageSections:
     eyebrow: chunky knits
     heading: blankets, stuffies and soft things
     subtext: >-
-      hand knitted with chunky yarn — no needles, just hands and a lot of wool.
-      these are made to order in the size and colour you want.
+      hand knitted with chunky yarn — no needles for the big pieces, just hands
+      and a lot of wool. blankets, throws and a small menagerie of stuffies, all
+      made to order.
     enquiryEmail: info@bandhan.co.nz
     enquiryText: enquire about this
     footnote: >-
-      new photos of the knit range are being taken right now. in the meantime,
-      ask us and we will send you pictures of what we have on the go.
+      the photos are just a few we have made — everything comes in whatever
+      colours you like. tell us what you are after and we will price it and send
+      pictures as it comes together.
     buttonSections: []
     collectionId: chunky-knits
     minItemWidth: 280
@@ -102,10 +104,10 @@ pageSections:
   - _component: page-sections/commerce/product-grid
     sectionLabel: christmas collection
     eyebrow: christmas collection
-    heading: angels and things for the tree
+    heading: gnomes, angels and things for the tree
     subtext: >-
-      our busiest little corner. christmas orders fill up quickly, so it pays to
-      get in touch early in the year.
+      knitted gnomes and knotted angels. our busiest little corner — christmas
+      orders fill up quickly, so it pays to get in touch early in the year.
     enquiryEmail: info@bandhan.co.nz
     enquiryText: enquire about this
     footnote: >-

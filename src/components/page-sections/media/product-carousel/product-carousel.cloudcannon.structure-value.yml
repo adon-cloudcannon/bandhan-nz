@@ -1,27 +1,24 @@
-label: Gallery Mosaic
-icon: photo_library
-description: Photo mosaic where chosen images span two columns for a scrapbook feel.
+label: Product Carousel
+icon: view_carousel
+description: Large swipeable photo view with a thumbnail strip, driven from the product catalogue.
 value:
-  _component: page-sections/media/gallery-mosaic
+  _component: page-sections/media/product-carousel
   sectionLabel: ""
   eyebrow: ""
-  heading: Heading text
+  heading: ""
   subtext: ""
   collectionId: ""
   featuredOnly: false
   productIds: []
-  perProduct: 0
+  perProduct: 1
   limit: 0
-  featureEvery: 5
-  showCaptions: true
-  images: []
-  buttonSections: []
-  columns: "3"
-  gap: md
+  aspectRatio: square
+  showArrows: true
+  loop: true
   alignmentHorizontal: center
-  maxContentWidth: 2xl
+  maxContentWidth: lg
   paddingHorizontal: lg
-  paddingVertical: 4xl
+  paddingVertical: 3xl
   colorScheme: inherit
   backgroundColor: base
   background:
@@ -35,15 +32,15 @@ value:
     overlay: 0
 preview:
   text:
-    - Gallery Mosaic
+    - Product Carousel
   subtext:
     - key: heading
-  icon: photo_library
+  icon: view_carousel
 picker_preview:
-  text: Gallery Mosaic
-  subtext: Photo mosaic with optional feature tiles.
+  text: Product Carousel
+  subtext: Big photo view driven from the product catalogue.
 _inputs_from_glob:
-  - /src/components/page-sections/media/gallery-mosaic/gallery-mosaic.cloudcannon.inputs.yml
+  - /src/components/page-sections/media/product-carousel/product-carousel.cloudcannon.inputs.yml
 _inputs:
   sectionLabel:
     type: text
@@ -229,66 +226,3 @@ _inputs:
       min: -1
       max: 1
       step: 0.1
-_structures:
-  galleryMosaicImages:
-    values:
-      - label: Photo
-        icon: image
-        value:
-          source: ""
-          alt: ""
-          caption: ""
-          feature: false
-          positionVertical: center
-          positionHorizontal: center
-        preview:
-          image:
-            - key: source
-          text:
-            - key: alt
-            - Photo
-          subtext:
-            - key: caption
-            - Add alt text
-        _inputs:
-          source:
-            type: image
-            comment: Photo to show. Square photos tile most neatly.
-            options:
-              paths:
-                uploads: src/assets/images/bandhan
-                static: ""
-              resize_style: contain
-              width: 1600
-              height: 1600
-          alt:
-            type: textarea
-            comment: Alt text describing the photo.
-          caption:
-            type: text
-            comment: Optional caption shown across the bottom of the photo.
-          feature:
-            type: switch
-            comment: Let this photo span two columns and two rows.
-          positionVertical:
-            type: select
-            comment: Vertical focal point of the photo within its tile.
-            options:
-              values:
-                - id: top
-                  name: Top
-                - id: center
-                  name: Center
-                - id: bottom
-                  name: Bottom
-          positionHorizontal:
-            type: select
-            comment: Horizontal focal point of the photo within its tile.
-            options:
-              values:
-                - id: left
-                  name: Left
-                - id: center
-                  name: Center
-                - id: right
-                  name: Right

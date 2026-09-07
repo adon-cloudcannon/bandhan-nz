@@ -1,0 +1,117 @@
+---
+/**
+ * Wires the arrows and dots on product cards that have more than one photo.
+ *
+ * The photos sit in a horizontal scroll-snap strip, so swiping and keyboard
+ * scrolling already work with no JavaScript at all — the buttons ship hidden
+ * and are only revealed here, once there is something to drive them.
+ *
+ * Button presses update the arrows and dots straight away rather than waiting
+ * for a scroll event, so the controls stay correct even where scroll events or
+ * animation frames are throttled (background tabs, reduced-motion, previews).
+ */
+---
+
+<script is:inline>
+  (function () {
+    function setup(media) {
+      if (media.dataset.galleryReady) return;
+      media.dataset.galleryReady = "true";
+
+      var track = media.querySelector(".product-media-track");
+      var prev = media.querySelector(".product-media-nav.prev");
+      var next = media.querySelector(".product-media-nav.next");
+      var dots = Array.prototype.slice.call(media.querySelectorAll(".product-media-dot"));
+      var last = dots.length - 1;
+
+      if (!track || !prev || !next || last < 1) return;
+
+      prev.hidden = false;
+      next.hidden = false;
+
+      /**
+       * The current photo is held here rather than derived from scrollLeft on
+       * every press. Mid-animation scrollLeft still reports the old position,
+       * so reading it made two quick presses of `next` advance only one photo.
+       */
+      var index = 0;
+
+      function scrolledIndex() {
+        var width = track.clientWidth;
+        return width ? Math.round(track.scrollLeft / width) : 0;
+      }
+
+      function apply() {
+        prev.disabled = index <= 0;
+        next.disabled = index >= last;
+
+        dots.forEach(function (dot, i) {
+          if (i === index) {
+            dot.setAttribute("aria-current", "true");
+          } else {
+            dot.removeAttribute("aria-current");
+          }
+        });
+      }
+
+      function go(to) {
+        index = Math.max(0, Math.min(to, last));
+
+        var behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "auto"
+          : "smooth";
+
+        track.scrollTo({ left: index * track.clientWidth, behavior: behavior });
+        apply();
+      }
+
+      prev.addEventListener("click", function () {
+        go(index - 1);
+      });
+
+      next.addEventListener("click", function () {
+        go(index + 1);
+      });
+
+      dots.forEach(function (dot, i) {
+        dot.addEventListener("click", function () {
+          go(i);
+        });
+      });
+
+      /**
+       * Picks up swipes and direct scrolling once the strip has settled. Only
+       * reads the position at rest, so it never fights a smooth scroll that a
+       * button press started.
+       */
+      function settled() {
+        index = Math.max(0, Math.min(scrolledIndex(), last));
+        apply();
+      }
+
+      if ("onscrollend" in window) {
+        track.addEventListener("scrollend", settled);
+      } else {
+        var timer;
+        track.addEventListener(
+          "scroll",
+          function () {
+            clearTimeout(timer);
+            timer = setTimeout(settled, 120);
+          },
+          { passive: true }
+        );
+      }
+
+      apply();
+    }
+
+    function init() {
+      var galleries = document.querySelectorAll("[data-product-gallery]");
+      Array.prototype.forEach.call(galleries, setup);
+    }
+
+    init();
+    document.addEventListener("astro:page-load", init);
+  })();
+</script>

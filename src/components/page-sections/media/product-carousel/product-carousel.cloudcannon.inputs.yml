@@ -1,0 +1,69 @@
+eyebrow:
+  type: text
+  comment: Optional eyebrow text shown above the heading.
+heading:
+  type: text
+  comment: Optional heading above the carousel.
+subtext:
+  type: markdown
+  comment: Supporting copy beneath the heading.
+  options:
+    blockquote: false
+    bold: true
+    format:
+    italic: true
+    link: true
+    bulletedlist: false
+    numberedlist: false
+collectionId:
+  type: select
+  label: Collection
+  comment: Show photos from every product in this collection. Products live in the Products data file.
+  options:
+    values: _select_data.productCollections
+featuredOnly:
+  type: switch
+  comment: Use only products marked as featured. Ignored when a collection is chosen.
+productIds:
+  type: array
+  label: Specific products
+  comment: Hand-pick products by id, in the order you want them.
+productIds[*]:
+  type: select
+  comment: Which product to show.
+  options:
+    values: _select_data.productIds
+perProduct:
+  type: number
+  comment: Most photos to take from each product. Leave at 1 so one product with many photos does not take over the carousel. 0 means all of them.
+limit:
+  type: number
+  comment: Most photos to show in total. Leave at 0 for no limit.
+aspectRatio:
+  type: select
+  comment: Shape of the large photo.
+  options:
+    values:
+      - id: square
+        name: Square
+      - id: landscape
+        name: Landscape
+      - id: portrait
+        name: Portrait
+      - id: widescreen
+        name: Widescreen
+showArrows:
+  type: switch
+  comment: Show the previous and next arrows.
+loop:
+  type: switch
+  comment: Wrap around from the last photo back to the first.
+alignmentHorizontal:
+  type: select
+  comment: Alignment for the heading and supporting text.
+  options:
+    values:
+      - id: start
+        name: Start
+      - id: center
+        name: Center

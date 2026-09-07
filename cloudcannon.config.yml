@@ -189,10 +189,20 @@ _select_data:
   productIds:
     - id: chunky-knit-blanket
       name: chunky knit blanket
-    - id: knitted-stuffed-animals
-      name: knitted stuffed animals
-    - id: knitted-gnomes
-      name: knitted gnomes
+    - id: knitted-bear
+      name: barnaby bear
+    - id: knitted-zebra
+      name: zeke the zebra
+    - id: knitted-horse
+      name: hank the horse
+    - id: knitted-cat
+      name: cassie the cat
+    - id: knitted-bumblebee
+      name: knitted bumblebee
+    - id: knitted-betta-fish
+      name: knitted betta fish
+    - id: knitted-halloween-ghost
+      name: halloween ghost
     - id: individual-macrame-doll
       name: individual macrame doll
     - id: framed-doll
@@ -203,6 +213,8 @@ _select_data:
       name: standing doll
     - id: large-wall-hanging
       name: large wall hanging
+    - id: knitted-gnomes
+      name: knitted gnomes
     - id: angel-tree-hanging
       name: individual angel tree hanging
     - id: small-christmas-ornaments
@@ -211,7 +223,6 @@ _select_data:
       name: tree ornament set
     - id: large-angel-wall-hanging
       name: large angel wall hanging
-  # Selectable UI icons match [Heroicons](https://heroicons.com/); SVGs live in src/icons/.
   icons:
     - id: academic-cap
       name: Academic Cap

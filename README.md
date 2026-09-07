@@ -20,13 +20,29 @@ Built on the CloudCannon [Astro Component Starter](https://github.com/CloudCanno
 Two page sections were built for this site and follow the starter's three-file pattern, so they are editable in CloudCannon like everything else:
 
 - `src/components/page-sections/commerce/product-grid/` — product cards with prices and a one-click email enquiry link
-- `src/components/page-sections/media/gallery-mosaic/` — photo mosaic with optional two-column feature tiles
+- `src/components/page-sections/media/gallery-mosaic/` — photo mosaic with two-column feature tiles
+- `src/components/page-sections/media/product-carousel/` — big photo view with a thumbnail strip
+
+All three read from the same catalogue (below), so no page ever restates a product.
 
 ## The product catalogue
 
-Every product lives exactly once, in `src/data/products.json`. Page sections choose which products to show rather than restating them, so a price is only ever edited in one place.
+Every product lives exactly once, in `src/data/products.json`. Page sections choose which products to show rather than restating them, so a price, a photo or a line of alt text is only ever edited in one place.
 
-A `product-grid` section picks its products in one of four ways, in this order of precedence:
+Each product holds a **list** of photos:
+
+```json
+"images": [
+  { "source": "/src/assets/images/bandhan/products/blanket-taupe-folded.jpg", "alt": "…" },
+  { "source": "/src/assets/images/bandhan/products/blanket-grey-on-bed.jpg", "alt": "…" }
+]
+```
+
+The first photo is what the product card shows, and where a product has several the card gets a small photo strip — arrows, dots, and swipe on touch. All of the photos also feed the gallery, which is how one blanket in six colourways fills a gallery without six separate products.
+
+The strip is a CSS scroll-snap track, so swiping and keyboard scrolling work with no JavaScript; the arrows ship hidden and are only revealed once the script wires them up. Turn the strip off for a section with `showPhotoGallery: false` and cards show the first photo only.
+
+Every section that shows products — `product-grid`, `gallery-mosaic` and `product-carousel` — selects from the catalogue the same four ways, in this order of precedence:
 
 | Setting                     | Shows                                                                      |
 | --------------------------- | -------------------------------------------------------------------------- |
@@ -35,9 +51,16 @@ A `product-grid` section picks its products in one of four ways, in this order o
 | `collectionId`              | Every product whose `collection` matches, in catalogue order.              |
 | `featuredOnly`              | Every product with `featured: true`.                                       |
 
-Then `limit` caps how many are shown, and `randomize` makes it a rotating selection — the home page's favourites are `featuredOnly` + `limit: 3` + `randomize`. Rotation renders the whole pool and marks all but the chosen few `hidden`, so a visitor without JavaScript still sees a valid selection and there is no layout shift.
+(For the photo sections, `products` and `productIds` behave the same way; `images` is the inline escape hatch on `gallery-mosaic`.)
 
-Array order in `products.json` is display order — drag to reorder in CloudCannon. A product with an empty `imageSource` renders a "photo coming soon" placeholder instead of an empty frame.
+Then:
+
+- **`limit`** caps how many products or tiles are shown.
+- **`randomize`** (product grid) makes it a rotating selection — the home page's favourites are `featuredOnly` + `limit: 3` + `randomize`. Rotation renders the whole pool and marks all but the chosen few `hidden`, so a visitor without JavaScript still sees a valid selection and there is no layout shift.
+- **`perProduct`** (photo sections) caps photos per product. Photos are dealt out one product at a time, so a product with six photos does not clump — the extras land after every other product has had a turn.
+- **`featureEvery`** (mosaic) gives every nth tile the big two-by-two span; `5` puts a large tile first, sixth, eleventh.
+
+Array order in `products.json` is display order — drag to reorder in CloudCannon. A product with an empty `images` list renders a "photo coming soon" placeholder instead of an empty frame.
 
 Adding or renaming a collection means updating `_select_data.productCollections` in `cloudcannon.config.yml` so it appears in the editor's dropdown (and `_select_data.productIds` if you want the new product pickable by id).
 

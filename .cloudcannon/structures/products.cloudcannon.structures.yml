@@ -9,14 +9,13 @@ products:
         name: ""
         price: ""
         description: ""
-        imageSource: ""
-        imageAlt: ""
+        images: []
         badge: ""
         collection: chunky-knits
         featured: false
       preview:
         image:
-          - key: imageSource
+          - key: images[0].source
         text:
           - key: name
           - Product
@@ -40,19 +39,12 @@ products:
         description:
           type: text
           comment: One short line about the piece.
-        imageSource:
-          type: image
-          comment: Photo of the piece. Square photos look best. Leave empty and the card shows a "photo coming soon" placeholder.
+        images:
+          type: array
+          label: Photos
+          comment: Every photo of this piece. The first one is what the product card shows; the rest feed the gallery. Leave empty and the card shows a "photo coming soon" placeholder.
           options:
-            paths:
-              uploads: src/assets/images/bandhan/products
-              static: ""
-            resize_style: contain
-            width: 1600
-            height: 1600
-        imageAlt:
-          type: textarea
-          comment: Alt text describing the photo. Falls back to the product name.
+            structures: _structures.productPhotos
         badge:
           type: text
           comment: 'Optional corner label, for example "made to order" or "new".'
@@ -64,3 +56,34 @@ products:
         featured:
           type: switch
           comment: Include this product in the rotating favourites on the home page.
+
+productPhotos:
+  style: modal
+  values:
+    - label: Photo
+      icon: image
+      value:
+        source: ""
+        alt: ""
+      preview:
+        image:
+          - key: source
+        text:
+          - key: alt
+          - Photo
+        subtext:
+          - key: source
+      _inputs:
+        source:
+          type: image
+          comment: Photo of the piece. Square photos crop most neatly into product cards.
+          options:
+            paths:
+              uploads: src/assets/images/bandhan/products
+              static: ""
+            resize_style: contain
+            width: 1600
+            height: 1600
+        alt:
+          type: textarea
+          comment: Alt text describing the photo, for screen readers. Falls back to the product name.

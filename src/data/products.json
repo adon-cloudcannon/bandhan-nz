@@ -5,132 +5,318 @@
       "name": "chunky knit blanket",
       "price": "price on enquiry",
       "description": "made to the size you need, in the colour you choose. warm, weighty and impossible to give back.",
-      "imageSource": "",
-      "imageAlt": "",
+      "badge": "made to order",
+      "collection": "chunky-knits",
+      "featured": true,
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/blanket-taupe-folded.jpg",
+          "alt": "a chunky knit blanket in taupe and cream, folded on a white chair"
+        },
+        {
+          "source": "/src/assets/images/bandhan/products/blanket-taupe-draped.jpg",
+          "alt": "a close view of the chunky stitches on a taupe and cream knitted blanket"
+        },
+        {
+          "source": "/src/assets/images/bandhan/products/blanket-cream-on-bed.jpg",
+          "alt": "a cream and taupe chunky knit blanket spread across a linen bed"
+        },
+        {
+          "source": "/src/assets/images/bandhan/products/blanket-grey-on-bed.jpg",
+          "alt": "a grey chunky knit blanket with a cream stripe, folded across the end of a bed"
+        },
+        {
+          "source": "/src/assets/images/bandhan/products/blanket-teal-gift-wrapped.jpg",
+          "alt": "a teal chunky knit blanket tied with a green ribbon and a bandhan gift tag"
+        },
+        {
+          "source": "/src/assets/images/bandhan/products/blanket-taupe-tag.jpg",
+          "alt": "a folded taupe and cream blanket with the bandhan swing tag attached"
+        }
+      ]
+    },
+    {
+      "id": "knitted-bear",
+      "name": "barnaby bear",
+      "price": "$20 – $25",
+      "description": "soft, squishy and sized for small arms. $25 in his bee jumper.",
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/stuffie-bear-white.jpg",
+          "alt": "a white chunky knit bear with a grey stitched snout, held in one hand"
+        },
+        {
+          "source": "/src/assets/images/bandhan/products/stuffie-bear-bee-jumper.jpg",
+          "alt": "a taupe chunky knit bear in a yellow bee jumper, beside a small knitted bee"
+        },
+        {
+          "source": "/src/assets/images/bandhan/products/stuffie-bears-trio.jpg",
+          "alt": "three chunky knit bears in lilac, cream and blue, held up together"
+        }
+      ],
       "badge": "made to order",
       "collection": "chunky-knits",
       "featured": true
     },
     {
-      "id": "knitted-stuffed-animals",
-      "name": "knitted stuffed animals",
+      "id": "knitted-zebra",
+      "name": "zeke the zebra",
       "price": "price on enquiry",
-      "description": "soft, squishy and sized for small arms. lovely as a new baby gift.",
-      "imageSource": "",
-      "imageAlt": "",
+      "description": "stripes from nose to tail, and a mane you can get your fingers into.",
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/stuffie-zebras-pair.jpg",
+          "alt": "two chunky knit zebras, one striped in blues and greens and one in pinks and lilacs"
+        }
+      ],
       "badge": "made to order",
       "collection": "chunky-knits",
       "featured": true
     },
     {
-      "id": "knitted-gnomes",
-      "name": "knitted gnomes",
-      "price": "$15 – $25",
-      "description": "three sizes, chunky knit hats, absolutely no faces. a christmas favourite.",
-      "imageSource": "/src/assets/images/bandhan/products/christmas-gnomes.jpg",
-      "imageAlt": "three chunky knit gnomes with red and green pom pom hats",
+      "id": "knitted-horse",
+      "name": "hank the horse",
+      "price": "$60",
+      "description": "a long soft nose and a shaggy mane. our biggest stuffie.",
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/stuffie-horse-blue.jpg",
+          "alt": "a large blue and white chunky knit horse with a shaggy mane"
+        },
+        {
+          "source": "/src/assets/images/bandhan/products/stuffie-horse-pink.jpg",
+          "alt": "a pink and white chunky knit horse with a shaggy mane"
+        }
+      ],
+      "badge": "made to order",
+      "collection": "chunky-knits",
+      "featured": true
+    },
+    {
+      "id": "knitted-cat",
+      "name": "cassie the cat",
+      "price": "price on enquiry",
+      "description": "pointed ears and a white tummy. sits up on her own.",
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/stuffie-cat-lilac.jpg",
+          "alt": "a lilac chunky knit cat with pointed ears and a white tummy, held in one hand"
+        },
+        {
+          "source": "/src/assets/images/bandhan/products/stuffie-cat-yellow.jpg",
+          "alt": "a yellow and white chunky knit cat with pointed ears"
+        }
+      ],
+      "badge": "made to order",
+      "collection": "chunky-knits",
+      "featured": true
+    },
+    {
+      "id": "knitted-bumblebee",
+      "name": "knitted bumblebee",
+      "price": "$10",
+      "description": "round, striped and fluffy-winged. a good first toy.",
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/stuffie-bee.jpg",
+          "alt": "a round yellow and black chunky knit bumblebee with fluffy white wings"
+        }
+      ],
       "badge": "",
       "collection": "chunky-knits",
       "featured": true
+    },
+    {
+      "id": "knitted-betta-fish",
+      "name": "knitted betta fish",
+      "price": "price on enquiry",
+      "description": "big flowing fins, in whatever colours you fancy. surprisingly cuddly, for a fish.",
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/stuffie-betta-fish-rainbow.jpg",
+          "alt": "a chunky knit betta fish with pastel rainbow fins and a white face"
+        },
+        {
+          "source": "/src/assets/images/bandhan/products/stuffie-betta-fish-pastel.jpg",
+          "alt": "a chunky knit betta fish with pastel patchwork fins and a black head"
+        },
+        {
+          "source": "/src/assets/images/bandhan/products/stuffie-betta-fish-red-navy.jpg",
+          "alt": "a chunky knit betta fish in red, white and navy"
+        },
+        {
+          "source": "/src/assets/images/bandhan/products/stuffie-betta-fish-black-white.jpg",
+          "alt": "a chunky knit betta fish in black and white"
+        }
+      ],
+      "badge": "",
+      "collection": "chunky-knits",
+      "featured": true
+    },
+    {
+      "id": "knitted-halloween-ghost",
+      "name": "halloween ghost",
+      "price": "price on enquiry",
+      "description": "a small ghost in a witch hat. only around in october.",
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/stuffie-halloween-ghost.jpg",
+          "alt": "a yellow chunky knit ghost wearing a purple and white witch hat"
+        }
+      ],
+      "badge": "seasonal",
+      "collection": "chunky-knits",
+      "featured": false
     },
     {
       "id": "individual-macrame-doll",
       "name": "individual macrame doll",
       "price": "$25",
       "description": "a little hanging doll, made in the colours you choose.",
-      "imageSource": "/src/assets/images/bandhan/products/macrame-doll-lilac.jpg",
-      "imageAlt": "a macrame doll with dusty pink and taupe cotton fringing",
-      "badge": "",
+      "badge": "made to order",
       "collection": "macrame",
-      "featured": true
+      "featured": true,
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/macrame-doll-lilac.jpg",
+          "alt": "a macrame doll with dusty pink and taupe cotton fringing"
+        }
+      ]
     },
     {
       "id": "framed-doll",
       "name": "framed doll",
       "price": "$30",
       "description": "a doll mounted in a white frame, with a name in beads.",
-      "imageSource": "/src/assets/images/bandhan/products/framed-doll.jpg",
-      "imageAlt": "a pink macrame doll mounted in a white picture frame with a beaded name banner",
       "badge": "personalised",
       "collection": "macrame",
-      "featured": true
+      "featured": true,
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/framed-doll.jpg",
+          "alt": "a pink macrame doll mounted in a white picture frame with a beaded name banner"
+        }
+      ]
     },
     {
       "id": "posable-doll",
       "name": "posable doll",
       "price": "$30",
       "description": "bendy arms and legs, so she can sit wherever you like.",
-      "imageSource": "/src/assets/images/bandhan/products/posable-doll.jpg",
-      "imageAlt": "a posable macrame doll in a pink petal skirt sitting on a wooden table",
       "badge": "",
       "collection": "macrame",
-      "featured": false
+      "featured": false,
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/posable-doll.jpg",
+          "alt": "a posable macrame doll in a pink petal skirt sitting on a wooden table"
+        }
+      ]
     },
     {
       "id": "standing-doll",
       "name": "standing doll",
       "price": "$35",
       "description": "stands on her own, straw hat and tiny basket included.",
-      "imageSource": "/src/assets/images/bandhan/products/standing-doll.jpg",
-      "imageAlt": "a standing macrame doll in a blue dress wearing a woven sun hat",
       "badge": "",
       "collection": "macrame",
-      "featured": true
+      "featured": true,
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/standing-doll.jpg",
+          "alt": "a standing macrame doll in a blue dress wearing a woven sun hat"
+        }
+      ]
     },
     {
       "id": "large-wall-hanging",
       "name": "large wall hanging",
       "price": "$60",
       "description": "two figures in a gold hoop — our most given wedding gift.",
-      "imageSource": "/src/assets/images/bandhan/products/forever-love-wall-hanging.jpg",
-      "imageAlt": "a macrame wall hanging of two figures holding a heart, framed in a gold hoop",
-      "badge": "",
+      "badge": "personalised",
       "collection": "macrame",
-      "featured": true
+      "featured": true,
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/forever-love-wall-hanging.jpg",
+          "alt": "a macrame wall hanging of two figures holding a heart, framed in a gold hoop"
+        }
+      ]
+    },
+    {
+      "id": "knitted-gnomes",
+      "name": "knitted gnomes",
+      "price": "$15 – $25",
+      "description": "three sizes, chunky knit hats, absolutely no faces. a christmas favourite.",
+      "badge": "",
+      "collection": "christmas",
+      "featured": true,
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/christmas-gnomes.jpg",
+          "alt": "three chunky knit gnomes with red and green pom pom hats"
+        }
+      ]
     },
     {
       "id": "angel-tree-hanging",
       "name": "individual angel tree hanging",
       "price": "$25",
       "description": "cotton fringing, wooden wings and a tiny wooden heart.",
-      "imageSource": "/src/assets/images/bandhan/products/angel-tree-hanging.jpg",
-      "imageAlt": "a small macrame angel with wooden wings, hanging from cotton cord",
-      "badge": "",
+      "badge": "made to order",
       "collection": "christmas",
-      "featured": false
+      "featured": false,
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/angel-tree-hanging.jpg",
+          "alt": "a small macrame angel with wooden wings, hanging from cotton cord"
+        }
+      ]
     },
     {
       "id": "small-christmas-ornaments",
       "name": "small christmas ornaments",
       "price": "$5",
       "description": "little wreaths for the tree, or for tying onto a gift.",
-      "imageSource": "/src/assets/images/bandhan/products/christmas-ornaments.jpg",
-      "imageAlt": "six small macrame wreath ornaments in cream, blue, green and navy",
       "badge": "stocking filler",
       "collection": "christmas",
-      "featured": false
+      "featured": false,
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/christmas-ornaments.jpg",
+          "alt": "six small macrame wreath ornaments in cream, blue, green and navy"
+        }
+      ]
     },
     {
       "id": "tree-ornament-set",
       "name": "tree ornament set",
       "price": "$40",
       "description": "an angel and two wreaths, boxed together as a set.",
-      "imageSource": "/src/assets/images/bandhan/products/tree-ornament-set.jpg",
-      "imageAlt": "a macrame angel and two woven wreaths arranged on a white background",
       "badge": "set of three",
       "collection": "christmas",
-      "featured": false
+      "featured": false,
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/tree-ornament-set.jpg",
+          "alt": "a macrame angel and two woven wreaths arranged on a white background"
+        }
+      ]
     },
     {
       "id": "large-angel-wall-hanging",
       "name": "large angel wall hanging",
       "price": "$60",
       "description": "wide cotton wings on a gold hoop, for a door or a wall.",
-      "imageSource": "/src/assets/images/bandhan/products/angel-wall-hanging.jpg",
-      "imageAlt": "a large macrame angel wall hanging with wide cream wings",
       "badge": "",
       "collection": "christmas",
-      "featured": true
+      "featured": true,
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/angel-wall-hanging.jpg",
+          "alt": "a large macrame angel wall hanging with wide cream wings"
+        }
+      ]
     }
   ]
 }
