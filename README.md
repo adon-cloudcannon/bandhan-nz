@@ -64,6 +64,52 @@ Array order in `products.json` is display order — drag to reorder in CloudCann
 
 Adding or renaming a collection means updating `_select_data.productCollections` in `cloudcannon.config.yml` so it appears in the editor's dropdown (and `_select_data.productIds` if you want the new product pickable by id).
 
+## Seasonal theme
+
+The site is currently wearing its **christmas** colours: mulled red and deep pine, antique gold for the metallic touches, and candy-cane stripes as band edges. The year-round rose brand is untouched underneath.
+
+Heroes open each page in red, calls to action close it in pine, and the alternating bands between them run parchment and peppermint.
+
+### Turning christmas off
+
+Comment out the three festive imports at the bottom of `src/styles/_theme.css`:
+
+```css
+/* @import url("themes/festive/_palette.css"); */
+/* @import url("themes/festive/_light.css"); */
+/* @import url("themes/festive/_dark.css"); */
+```
+
+That is the whole colour revert. `themes/_light.css` and `themes/_dark.css` still hold the original rose values and were never edited.
+
+Then put the logo back to the rose mark in `src/data/mainNav.json` and `src/data/footer.json`:
+
+```json
+"logoSource": "/src/assets/images/bandhan/bandhan-mark.png"
+```
+
+`logoAlternateSource` (the cream outline mark) is unchanged and works in either season.
+
+### Dark mode
+
+Dark mode is currently **off**: `"themeToggle": false` in `src/data/mainNav.json`. That one flag removes both the toggle button and the script that sets the theme, so the page stays on the light theme `BaseLayout` declares. Set it back to `true` to bring dark mode back; `themes/_dark.css` and `themes/festive/_dark.css` are both still in place and working.
+
+### How it works
+
+The festive files only redefine CSS custom properties, so no component or page knows the season exists:
+
+| File                          | What it sets                                     |
+| ----------------------------- | ------------------------------------------------ |
+| `themes/festive/_palette.css` | Raw ramps: wine, forest, gold, parchment, bark   |
+| `themes/festive/_light.css`   | Light theme tokens, plus the deep band treatment |
+| `themes/festive/_dark.css`    | Dark theme tokens                                |
+
+Two details worth knowing if you write another season:
+
+- **Deep bands.** The accent bands and the footer are deep red and pine with parchment type on them, done by redefining the tokens on the band element itself so everything inside follows. Those rules also re-declare `color`, because `color` inherits as an already-resolved value and text that merely inherits from `body` would otherwise stay dark. They also override `--color-bg-surface` and `--color-bg-muted` with translucent washes, since button hovers read those and a solid light hover on a dark band leaves pale text on pale mint.
+- **Overlay tokens.** Anything sitting on a photograph (product badges, the photo-strip arrows and dots, the gallery caption scrim) reads from `--color-badge-*`, `--color-control-*`, `--color-on-scrim` and `--color-scrim-rgb` rather than raw palette values, so a season swap reaches them too.
+- **Stripes only on band edges.** `--peppermint-stripe` is a `repeating-linear-gradient` applied to `::before` and `::after` on the deep bands, and to the divider rule. The header and footer deliberately have none: a stripe there would butt against the neighbouring band's stripe, and because each element phases its own diagonal from its own box, the two rows meet at a visible jog rather than running through.
+
 The journal (`/blog/`) is wired up but empty, and is not linked from the navigation. Add an `.mdx` file to `src/content/blog/` to start it.
 
 ---

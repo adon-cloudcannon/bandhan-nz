@@ -1,0 +1,86 @@
+/* ---------------------------------------------------------------------------
+   Festive palette: raw colour ramps for the christmas season.
+
+   Deep and sumptuous rather than bright: claret and pine, with antique gold
+   for small metallic touches. Nothing in here is used directly by components;
+   the semantic tokens in this folder's `_light.css` and `_dark.css` map these
+   onto the site.
+
+   `:root` rather than `:where(:root)` so these win over the year-round ramps
+   in `variables/_colors.css` without needing `!important`.
+   --------------------------------------------------------------------------- */
+
+:root {
+  /* Mulled wine: held close to true red so it never drifts toward plum.
+     Blue stays at or below green across the ramp, which is what keeps the
+     purple out. */
+  --wine-50: #fdf4f2;
+  --wine-100: #f9e6e2;
+  --wine-200: #f1cbc4;
+  --wine-300: #dd9d93;
+  --wine-400: #c56f62;
+  --wine-500: #a9483a;
+  --wine-600: #8d3227;
+  --wine-700: #6b211c;
+  --wine-800: #561a19;
+  --wine-900: #3c1212;
+
+  /* Pine and spruce. */
+  --forest-50: #f3f6f3;
+  --forest-100: #e4ece5;
+  --forest-200: #c8d8ca;
+  --forest-300: #9fb8a4;
+  --forest-400: #6f9178;
+  --forest-500: #4c6f57;
+  --forest-600: #375441;
+  --forest-700: #284032;
+  --forest-800: #1c2f25;
+  --forest-900: #13211a;
+
+  /* Antique gold. Never carries body text on a light background. */
+  --gold-200: #ead9b6;
+  --gold-400: #c9a86a;
+  --gold-600: #9a7636;
+  --gold-700: #7d5e28;
+
+  /* Warm parchment, in place of the year-round cream. */
+  --parchment-50: #fdfaf5;
+  --parchment-100: #faf5ec;
+  --parchment-200: #f2ead9;
+  --parchment-300: #e7dbc4;
+  --parchment-400: #d8c8ab;
+
+  /* Candy-cane stripe, used for borders and dividers. */
+  --peppermint-stripe: repeating-linear-gradient(
+    -45deg,
+    var(--wine-600) 0 9px,
+    var(--parchment-50) 9px 18px
+  );
+  --peppermint-depth: 10px;
+
+  /* Near-black with a little warmth, so it sits with both claret and pine. */
+  --bark-600: #5c5347;
+  --bark-700: #453f36;
+  --bark-800: #302c26;
+  --bark-900: #221f1b;
+  --bark-950: #15130f;
+
+  /* The starter's accent pairs, pulled into the festive family so any icon
+     colour an editor picks still belongs on the page. */
+  --pink-light: var(--wine-100);
+  --pink-dark: var(--wine-500);
+  --red-light: #f7e9e8;
+  --red-dark: #8f3a3a;
+  --purple-light: #efe6ec;
+  --purple-dark: #7a5566;
+  --yellow-light: #f6ecd6;
+  --yellow-dark: var(--gold-700);
+  --orange-light: #f7e8dc;
+  --orange-dark: #99603a;
+  --green-light: var(--forest-100);
+  --green-dark: var(--forest-600);
+  --blue-light: #e5ecee;
+  --blue-dark: #456069;
+  --cyan-light: #e3eeec;
+  --cyan-dark: #3f6b63;
+}

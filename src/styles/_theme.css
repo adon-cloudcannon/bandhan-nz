@@ -1,2 +1,16 @@
 @import url("themes/_light.css");
 @import url("themes/_dark.css");
+
+/* ---------------------------------------------------------------------------
+   SEASONAL OVERLAY
+
+   The three imports below repaint the site in claret and pine for christmas.
+   They only redefine tokens, so no component or page needs to know about them.
+
+   To bring the year-round rose brand back, comment out these three lines.
+   That is the whole revert: `themes/_light.css` and `themes/_dark.css` above
+   still hold the original colours, untouched.
+   --------------------------------------------------------------------------- */
+@import url("themes/festive/_palette.css");
+@import url("themes/festive/_light.css");
+@import url("themes/festive/_dark.css");

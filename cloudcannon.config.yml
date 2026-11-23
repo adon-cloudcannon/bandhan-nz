@@ -180,13 +180,37 @@ _inputs:
 _select_data:
   # Product collections and ids, sourced from src/data/products.json.
   productCollections:
+    - id: christmas
+      name: christmas
     - id: chunky-knits
       name: chunky knits
     - id: macrame
       name: macrame
-    - id: christmas
-      name: christmas
   productIds:
+    - id: knitted-christmas-stocking
+      name: knitted christmas stocking
+    - id: knitted-candy-cane
+      name: knitted candy cane
+    - id: knitted-snowman
+      name: knitted snowman
+    - id: knitted-gingerbread-man
+      name: knitted gingerbread man
+    - id: knitted-mouse
+      name: knitted mouse
+    - id: knitted-dinosaur
+      name: knitted dinosaur
+    - id: knitted-elf
+      name: knitted elf
+    - id: knitted-gnomes
+      name: knitted gnomes
+    - id: angel-tree-hanging
+      name: individual angel tree hanging
+    - id: small-christmas-ornaments
+      name: small christmas ornaments
+    - id: tree-ornament-set
+      name: tree ornament set
+    - id: large-angel-wall-hanging
+      name: large angel wall hanging
     - id: chunky-knit-blanket
       name: chunky knit blanket
     - id: knitted-bear
@@ -213,16 +237,6 @@ _select_data:
       name: standing doll
     - id: large-wall-hanging
       name: large wall hanging
-    - id: knitted-gnomes
-      name: knitted gnomes
-    - id: angel-tree-hanging
-      name: individual angel tree hanging
-    - id: small-christmas-ornaments
-      name: small christmas ornaments
-    - id: tree-ornament-set
-      name: tree ornament set
-    - id: large-angel-wall-hanging
-      name: large angel wall hanging
   icons:
     - id: academic-cap
       name: Academic Cap

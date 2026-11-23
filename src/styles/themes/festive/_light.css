@@ -1,0 +1,176 @@
+/* Festive light theme: parchment, claret and pine. */
+[data-theme="light"] {
+  color-scheme: light;
+
+  --color-brand: var(--wine-700);
+  --color-brand-muted: var(--wine-800);
+  --color-brand-subtle: var(--wine-300);
+  --color-brand-on: var(--parchment-50);
+
+  --color-text: var(--bark-800);
+  --color-text-strong: var(--bark-900);
+  --color-text-muted: var(--bark-600);
+  --color-text-on-muted: var(--bark-900);
+  --color-text-on-brand: var(--parchment-50);
+  --color-text-inverse: var(--parchment-100);
+  --color-link: var(--wine-700);
+  --color-link-hover: var(--wine-900);
+
+  --color-bg: var(--parchment-100);
+
+  /* Alternating bands run warm parchment then pale pine, so the page reads
+     as reds and greens rather than claret on sand. */
+  --color-bg-surface: #dfeae1;
+  --color-bg-muted: var(--parchment-300);
+  --color-bg-accent: var(--wine-200);
+  --color-bg-highlight: var(--forest-100);
+  --color-bg-brand: var(--color-brand);
+  --color-bg-brand-muted: var(--color-brand-muted);
+  --color-bg-inverse: var(--forest-900);
+
+  --color-border: var(--parchment-400);
+  --color-border-inputs: var(--wine-500);
+  --color-border-strong: var(--bark-700);
+  --color-border-subtle: var(--parchment-300);
+
+  --color-state-hover: rgb(94 40 51 / 0.08);
+  --color-state-active: rgb(94 40 51 / 0.14);
+  --color-overlay: rgb(34 31 27 / 0.55);
+
+  --color-focus-ring: rgb(94 40 51 / 0.55);
+
+  --color-danger: #a3302c;
+  --color-danger-hover: #82241f;
+  --color-danger-bg-subtle: #f9ecea;
+  --color-danger-border-subtle: #e0b0aa;
+  --color-info: var(--forest-700);
+  --color-info-bg-subtle: var(--forest-100);
+  --color-info-border-subtle: var(--forest-200);
+  --color-success: var(--forest-700);
+  --color-success-bg-subtle: var(--forest-100);
+  --color-error: var(--color-danger);
+
+  /* Antique gold badges, and a bark scrim over photography. */
+  --color-badge-bg: var(--gold-200);
+  --color-badge-text: var(--bark-900);
+  --color-control-bg: var(--parchment-50);
+  --color-control-text: var(--bark-900);
+  --color-on-scrim: var(--parchment-50);
+  --color-scrim-rgb: 34 31 27;
+}
+
+/* ---------------------------------------------------------------------------
+   Deep bands.
+
+   A pale tint will not read as sumptuous, so on the light theme the accent
+   bands (heroes and calls to action) become deep claret and the footer deep
+   pine, with parchment type and gold buttons on them. Redefining the tokens on
+   the band itself means every component inside follows without knowing.
+
+   Scoped to the light theme only: in the dark theme these bands are already
+   deep, and inverting them again would flatten the page.
+   --------------------------------------------------------------------------- */
+
+[data-theme="light"] .outer-content:has(> .bg-accent),
+[data-theme="light"] .footer {
+  /* `color` inherits as an already-resolved value, so redefining the token
+     alone leaves text that simply inherits from `body` the old dark colour.
+     Re-declaring it here re-resolves it for everything inside the band. */
+  color: var(--color-text);
+
+  --color-text: var(--parchment-200);
+  --color-text-strong: var(--parchment-50);
+  --color-text-muted: var(--parchment-300);
+  --color-text-on-muted: var(--parchment-50);
+
+  --color-brand: var(--gold-400);
+  --color-brand-muted: var(--gold-200);
+  --color-brand-subtle: var(--gold-600);
+  --color-text-on-brand: var(--bark-950);
+  --color-bg-brand: var(--gold-400);
+  --color-bg-brand-muted: var(--gold-200);
+
+  --color-link: var(--gold-400);
+  --color-link-hover: var(--gold-200);
+
+  --color-border: var(--gold-700);
+  --color-border-strong: var(--gold-400);
+  --color-border-subtle: rgb(250 245 236 / 0.18);
+
+  --color-state-hover: rgb(250 245 236 / 0.1);
+  --color-state-active: rgb(250 245 236 / 0.16);
+}
+
+/* Heroes run claret, calls to action run pine, so each page opens red and
+   closes green. */
+[data-theme="light"] .outer-content:has(> .bg-accent) {
+  --color-bg-accent: var(--wine-800);
+}
+
+/* Button hovers read the surface and muted backgrounds. On a deep band those
+   have to stay dark, or a tertiary button turns pale mint under parchment
+   text on hover. Translucent washes keep the band showing through. */
+[data-theme="light"] .outer-content:has(> .bg-accent),
+[data-theme="light"] .footer {
+  --color-bg-surface: rgb(250 245 236 / 0.12);
+  --color-bg-muted: rgb(250 245 236 / 0.2);
+}
+
+[data-theme="light"] .cta-center > .outer-content:has(> .bg-accent),
+[data-theme="light"] .cta-split > .outer-content:has(> .bg-accent) {
+  --color-bg-accent: var(--forest-800);
+}
+
+[data-theme="light"] .footer {
+  background-color: var(--forest-800);
+  position: relative;
+}
+
+/* ---------------------------------------------------------------------------
+   Peppermint edges.
+
+   Candy-cane stripes as borders along both edges of every deep band, and in
+   place of the plain rule the divider draws.
+
+   Only the bands carry one. A stripe on the header or the footer would land
+   directly against the neighbouring band's stripe, and because each element
+   phases its own diagonal from its own box, the two rows meet at a visible
+   jog rather than running through.
+   --------------------------------------------------------------------------- */
+
+[data-theme="light"] .outer-content:has(> .bg-accent)::before,
+[data-theme="light"] .outer-content:has(> .bg-accent)::after {
+  background: var(--peppermint-stripe);
+  content: "";
+  height: var(--peppermint-depth);
+  inset-inline: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: var(--layer-2);
+}
+
+[data-theme="light"] .outer-content:has(> .bg-accent)::before {
+  top: 0;
+}
+
+[data-theme="light"] .outer-content:has(> .bg-accent)::after {
+  bottom: 0;
+}
+
+/* The footer sits on deep pine, so it shows the outline mark rather than the
+   filled claret one. With the theme toggle switched off, the alternate image
+   is otherwise unreachable. */
+[data-theme="light"] .footer .image-primary {
+  display: none;
+}
+
+[data-theme="light"] .footer .image-alternate {
+  display: block;
+}
+
+/* The divider rule becomes a length of candy cane. */
+[data-theme="light"] .divider .rule {
+  background: var(--peppermint-stripe);
+  border: 0;
+  height: 6px;
+}

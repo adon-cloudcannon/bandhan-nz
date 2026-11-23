@@ -54,6 +54,29 @@ pageSections:
     backgroundColor: surface
     rounded: false
   - _component: page-sections/commerce/product-grid
+    sectionLabel: christmas collection
+    eyebrow: christmas collection
+    heading: stockings, snowmen and things for the tree
+    subtext: >-
+      stockings, candy canes, snowmen and gingerbread, plus the knotted angels.
+      our busiest little corner, and it fills up fast, so get in early.
+    enquiryEmail: info@bandhan.co.nz
+    enquiryText: enquire about this
+    footnote: >-
+      **ordering for christmas?** get in touch by the end of october and we will
+      make sure it is under the tree in time.
+    buttonSections: []
+    collectionId: christmas
+    minItemWidth: 280
+    maxItemWidth: 400
+    gap: lg
+    alignmentHorizontal: center
+    maxContentWidth: xl
+    paddingHorizontal: lg
+    paddingVertical: 4xl
+    colorScheme: inherit
+    backgroundColor: base
+  - _component: page-sections/commerce/product-grid
     sectionLabel: chunky knits
     eyebrow: chunky knits
     heading: blankets, stuffies and soft things
@@ -77,7 +100,7 @@ pageSections:
     paddingHorizontal: lg
     paddingVertical: 4xl
     colorScheme: inherit
-    backgroundColor: base
+    backgroundColor: surface
   - _component: page-sections/commerce/product-grid
     sectionLabel: macrame collection
     eyebrow: macrame collection
@@ -92,29 +115,6 @@ pageSections:
       custom colours are all possible — just ask.
     buttonSections: []
     collectionId: macrame
-    minItemWidth: 280
-    maxItemWidth: 400
-    gap: lg
-    alignmentHorizontal: center
-    maxContentWidth: xl
-    paddingHorizontal: lg
-    paddingVertical: 4xl
-    colorScheme: inherit
-    backgroundColor: surface
-  - _component: page-sections/commerce/product-grid
-    sectionLabel: christmas collection
-    eyebrow: christmas collection
-    heading: gnomes, angels and things for the tree
-    subtext: >-
-      knitted gnomes and knotted angels. our busiest little corner — christmas
-      orders fill up quickly, so it pays to get in touch early in the year.
-    enquiryEmail: info@bandhan.co.nz
-    enquiryText: enquire about this
-    footnote: >-
-      **ordering for christmas?** get in touch by the end of october and we will
-      make sure it is under the tree in time.
-    buttonSections: []
-    collectionId: christmas
     minItemWidth: 280
     maxItemWidth: 400
     gap: lg

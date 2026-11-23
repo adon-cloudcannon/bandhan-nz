@@ -1,6 +1,190 @@
 {
   "products": [
     {
+      "id": "knitted-christmas-stocking",
+      "name": "knitted christmas stocking",
+      "price": "price on enquiry",
+      "description": "chunky knit and roomy, in whatever two colours you fancy.",
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/xmas-stockings-pair.jpg",
+          "alt": "two chunky knit christmas stockings, one cream and blue, one pink and burgundy"
+        }
+      ],
+      "badge": "made to order",
+      "collection": "christmas",
+      "featured": true
+    },
+    {
+      "id": "knitted-candy-cane",
+      "name": "knitted candy cane",
+      "price": "price on enquiry",
+      "description": "a soft candy cane for the tree or the mantel. no stickiness.",
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/xmas-candy-cane.jpg",
+          "alt": "a large chunky knit candy cane striped in teal, burgundy, gold and white"
+        }
+      ],
+      "badge": "",
+      "collection": "christmas",
+      "featured": true
+    },
+    {
+      "id": "knitted-snowman",
+      "name": "knitted snowman",
+      "price": "price on enquiry",
+      "description": "woolly hat, long scarf and a carrot nose. does not melt.",
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/xmas-snowman.jpg",
+          "alt": "a chunky knit snowman with a sage hat and scarf and an orange carrot nose"
+        }
+      ],
+      "badge": "",
+      "collection": "christmas",
+      "featured": true
+    },
+    {
+      "id": "knitted-gingerbread-man",
+      "name": "knitted gingerbread man",
+      "price": "price on enquiry",
+      "description": "santa hat, burgundy scarf, and no risk of being eaten.",
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/xmas-gingerbread-man.jpg",
+          "alt": "a chunky knit gingerbread man in a burgundy santa hat and scarf"
+        }
+      ],
+      "badge": "",
+      "collection": "christmas",
+      "featured": true
+    },
+    {
+      "id": "knitted-mouse",
+      "name": "knitted mouse",
+      "price": "price on enquiry",
+      "description": "round ears and a proper wardrobe: a white dress, or wrapped up in a winter coat.",
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/xmas-mouse-dress.jpg",
+          "alt": "a chunky knit mouse in a white dress with red berry buttons and a pink bow"
+        },
+        {
+          "source": "/src/assets/images/bandhan/products/xmas-mouse-winter-coat.jpg",
+          "alt": "a chunky knit mouse in a hooded burgundy coat trimmed with pom poms"
+        }
+      ],
+      "badge": "made to order",
+      "collection": "christmas",
+      "featured": true
+    },
+    {
+      "id": "knitted-dinosaur",
+      "name": "knitted dinosaur",
+      "price": "price on enquiry",
+      "description": "spines down his back and a santa hat on top.",
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/xmas-dinosaur-santa-hat.jpg",
+          "alt": "a white chunky knit dinosaur with teal spines, wearing a burgundy santa hat"
+        }
+      ],
+      "badge": "",
+      "collection": "christmas",
+      "featured": true
+    },
+    {
+      "id": "knitted-elf",
+      "name": "knitted elf",
+      "price": "price on enquiry",
+      "description": "pointed hat, gold belt, and a very serious beard.",
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/xmas-elf.jpg",
+          "alt": "a chunky knit elf in a teal pointed hat with a white beard and a gold belt"
+        }
+      ],
+      "badge": "",
+      "collection": "christmas",
+      "featured": true
+    },
+    {
+      "id": "knitted-gnomes",
+      "name": "knitted gnomes",
+      "price": "$15 – $25",
+      "description": "three sizes, chunky knit hats, absolutely no faces. a christmas favourite.",
+      "badge": "",
+      "collection": "christmas",
+      "featured": true,
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/christmas-gnomes.jpg",
+          "alt": "three chunky knit gnomes with red and green pom pom hats"
+        }
+      ]
+    },
+    {
+      "id": "angel-tree-hanging",
+      "name": "individual angel tree hanging",
+      "price": "$25",
+      "description": "cotton fringing, wooden wings and a tiny wooden heart.",
+      "badge": "made to order",
+      "collection": "christmas",
+      "featured": false,
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/angel-tree-hanging.jpg",
+          "alt": "a small macrame angel with wooden wings, hanging from cotton cord"
+        }
+      ]
+    },
+    {
+      "id": "small-christmas-ornaments",
+      "name": "small christmas ornaments",
+      "price": "$5",
+      "description": "little wreaths for the tree, or for tying onto a gift.",
+      "badge": "stocking filler",
+      "collection": "christmas",
+      "featured": false,
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/christmas-ornaments.jpg",
+          "alt": "six small macrame wreath ornaments in cream, blue, green and navy"
+        }
+      ]
+    },
+    {
+      "id": "tree-ornament-set",
+      "name": "tree ornament set",
+      "price": "$40",
+      "description": "an angel and two wreaths, boxed together as a set.",
+      "badge": "set of three",
+      "collection": "christmas",
+      "featured": false,
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/tree-ornament-set.jpg",
+          "alt": "a macrame angel and two woven wreaths arranged on a white background"
+        }
+      ]
+    },
+    {
+      "id": "large-angel-wall-hanging",
+      "name": "large angel wall hanging",
+      "price": "$60",
+      "description": "wide cotton wings on a gold hoop, for a door or a wall.",
+      "badge": "",
+      "collection": "christmas",
+      "featured": true,
+      "images": [
+        {
+          "source": "/src/assets/images/bandhan/products/angel-wall-hanging.jpg",
+          "alt": "a large macrame angel wall hanging with wide cream wings"
+        }
+      ]
+    },
+    {
       "id": "chunky-knit-blanket",
       "name": "chunky knit blanket",
       "price": "price on enquiry",
@@ -240,81 +424,6 @@
         {
           "source": "/src/assets/images/bandhan/products/forever-love-wall-hanging.jpg",
           "alt": "a macrame wall hanging of two figures holding a heart, framed in a gold hoop"
-        }
-      ]
-    },
-    {
-      "id": "knitted-gnomes",
-      "name": "knitted gnomes",
-      "price": "$15 – $25",
-      "description": "three sizes, chunky knit hats, absolutely no faces. a christmas favourite.",
-      "badge": "",
-      "collection": "christmas",
-      "featured": true,
-      "images": [
-        {
-          "source": "/src/assets/images/bandhan/products/christmas-gnomes.jpg",
-          "alt": "three chunky knit gnomes with red and green pom pom hats"
-        }
-      ]
-    },
-    {
-      "id": "angel-tree-hanging",
-      "name": "individual angel tree hanging",
-      "price": "$25",
-      "description": "cotton fringing, wooden wings and a tiny wooden heart.",
-      "badge": "made to order",
-      "collection": "christmas",
-      "featured": false,
-      "images": [
-        {
-          "source": "/src/assets/images/bandhan/products/angel-tree-hanging.jpg",
-          "alt": "a small macrame angel with wooden wings, hanging from cotton cord"
-        }
-      ]
-    },
-    {
-      "id": "small-christmas-ornaments",
-      "name": "small christmas ornaments",
-      "price": "$5",
-      "description": "little wreaths for the tree, or for tying onto a gift.",
-      "badge": "stocking filler",
-      "collection": "christmas",
-      "featured": false,
-      "images": [
-        {
-          "source": "/src/assets/images/bandhan/products/christmas-ornaments.jpg",
-          "alt": "six small macrame wreath ornaments in cream, blue, green and navy"
-        }
-      ]
-    },
-    {
-      "id": "tree-ornament-set",
-      "name": "tree ornament set",
-      "price": "$40",
-      "description": "an angel and two wreaths, boxed together as a set.",
-      "badge": "set of three",
-      "collection": "christmas",
-      "featured": false,
-      "images": [
-        {
-          "source": "/src/assets/images/bandhan/products/tree-ornament-set.jpg",
-          "alt": "a macrame angel and two woven wreaths arranged on a white background"
-        }
-      ]
-    },
-    {
-      "id": "large-angel-wall-hanging",
-      "name": "large angel wall hanging",
-      "price": "$60",
-      "description": "wide cotton wings on a gold hoop, for a door or a wall.",
-      "badge": "",
-      "collection": "christmas",
-      "featured": true,
-      "images": [
-        {
-          "source": "/src/assets/images/bandhan/products/angel-wall-hanging.jpg",
-          "alt": "a large macrame angel wall hanging with wide cream wings"
         }
       ]
     }

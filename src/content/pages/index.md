@@ -11,10 +11,10 @@ pageSections:
     subtext: >-
       chunky knit blankets and soft stuffed animals, alongside macrame dolls,
       angels and wall hangings — made in small batches, from good yarn and soft rope, with a lot of heart.
-    imageSource: /src/assets/images/bandhan/products/blanket-taupe-tag.jpg
+    imageSource: /src/assets/images/bandhan/products/xmas-mouse-dress.jpg
     imageAlt: >-
-      a folded taupe and cream chunky knit blanket with the bandhan swing tag
-      attached
+      a chunky knit mouse in a white dress with red berry buttons and a pink
+      bow
     imageAspectRatio: square
     buttonSections:
       - _component: building-blocks/core-elements/button
@@ -39,6 +39,35 @@ pageSections:
     paddingVertical: 4xl
     colorScheme: inherit
     backgroundColor: accent
+  - _component: page-sections/media/gallery-mosaic
+    sectionLabel: christmas collection
+    eyebrow: new for christmas
+    heading: stockings, snowmen and a soft candy cane
+    subtext: >-
+      the christmas range is in. everything is made to order, so the sooner you
+      tell us, the sooner it is under the tree.
+    collectionId: christmas
+    perProduct: 1
+    limit: 10
+    featureEvery: 5
+    showCaptions: false
+    buttonSections:
+      - _component: building-blocks/core-elements/button
+        text: see the christmas collection
+        hideText: false
+        link: /shop/#christmas-collection
+        iconName: arrow-long-right
+        iconPosition: after
+        variant: tertiary
+        size: md
+    columns: '4'
+    gap: sm
+    alignmentHorizontal: center
+    maxContentWidth: 3xl
+    paddingHorizontal: lg
+    paddingVertical: 4xl
+    colorScheme: inherit
+    backgroundColor: surface
   - _component: page-sections/builders/custom-section
     label: chunky knits
     contentSections:
@@ -89,7 +118,7 @@ pageSections:
     paddingHorizontal: lg
     paddingVertical: 4xl
     colorScheme: inherit
-    backgroundColor: surface
+    backgroundColor: base
     rounded: false
   - _component: page-sections/features/feature-grid
     eyebrow: why bandhan
@@ -124,7 +153,7 @@ pageSections:
     paddingHorizontal: lg
     paddingVertical: 4xl
     colorScheme: inherit
-    backgroundColor: base
+    backgroundColor: surface
   - _component: page-sections/commerce/product-grid
     sectionLabel: favourites
     eyebrow: a few favourites
@@ -152,32 +181,6 @@ pageSections:
     gap: lg
     alignmentHorizontal: center
     maxContentWidth: xl
-    paddingHorizontal: lg
-    paddingVertical: 4xl
-    colorScheme: inherit
-    backgroundColor: surface
-  - _component: page-sections/media/gallery-mosaic
-    sectionLabel: gallery preview
-    eyebrow: from the workbasket
-    heading: a little look at what we make
-    subtext: ''
-    perProduct: 1
-    limit: 5
-    featureEvery: 5
-    showCaptions: false
-    buttonSections:
-      - _component: building-blocks/core-elements/button
-        text: see the full gallery
-        hideText: false
-        link: /gallery/
-        iconName: arrow-long-right
-        iconPosition: after
-        variant: tertiary
-        size: md
-    columns: '4'
-    gap: sm
-    alignmentHorizontal: center
-    maxContentWidth: 3xl
     paddingHorizontal: lg
     paddingVertical: 4xl
     colorScheme: inherit

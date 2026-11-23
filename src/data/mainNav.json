@@ -1,14 +1,30 @@
 {
-  "logoSource": "/src/assets/images/bandhan/bandhan-mark.png",
+  "logoSource": "/src/assets/images/bandhan/bandhan-mark-festive.png",
   "logoAlternateSource": "/src/assets/images/bandhan/bandhan-mark-dark.png",
   "logoAlt": "Bandhan",
   "logoText": "bandhan",
-  "themeToggle": true,
+  "themeToggle": false,
   "navData": [
-    { "name": "home", "path": "/", "children": [] },
-    { "name": "shop", "path": "/shop/", "children": [] },
-    { "name": "gallery", "path": "/gallery/", "children": [] },
-    { "name": "our story", "path": "/about/", "children": [] }
+    {
+      "name": "home",
+      "path": "/",
+      "children": []
+    },
+    {
+      "name": "shop",
+      "path": "/shop/",
+      "children": []
+    },
+    {
+      "name": "gallery",
+      "path": "/gallery/",
+      "children": []
+    },
+    {
+      "name": "our story",
+      "path": "/about/",
+      "children": []
+    }
   ],
   "buttonSections": [
     {

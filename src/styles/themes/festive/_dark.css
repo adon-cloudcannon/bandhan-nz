@@ -1,0 +1,57 @@
+/* Festive dark theme: a deep pine room, lit by gold and claret. */
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-brand: var(--gold-400);
+  --color-brand-muted: var(--gold-200);
+  --color-brand-subtle: var(--gold-600);
+  --color-brand-on: var(--bark-950);
+
+  --color-text: var(--parchment-200);
+  --color-text-strong: var(--parchment-50);
+  --color-text-muted: var(--parchment-300);
+  --color-text-on-muted: var(--parchment-50);
+  --color-text-on-brand: var(--bark-950);
+  --color-text-inverse: var(--bark-900);
+  --color-link: var(--gold-400);
+  --color-link-hover: var(--gold-200);
+
+  --color-bg: #151d18;
+  --color-bg-surface: var(--forest-900);
+  --color-bg-muted: var(--forest-800);
+  --color-bg-accent: var(--wine-900);
+  --color-bg-highlight: var(--forest-800);
+  --color-bg-brand: var(--color-brand);
+  --color-bg-brand-muted: var(--color-brand-muted);
+  --color-bg-inverse: var(--parchment-100);
+
+  --color-border: #35463a;
+  --color-border-inputs: #4d6153;
+  --color-border-strong: var(--gold-600);
+  --color-border-subtle: var(--forest-800);
+
+  --color-state-hover: rgb(250 245 236 / 0.08);
+  --color-state-active: rgb(250 245 236 / 0.14);
+  --color-overlay: rgb(10 15 12 / 0.72);
+
+  --color-focus-ring: rgb(201 168 106 / 0.6);
+
+  --color-danger: #e8a09a;
+  --color-danger-hover: #f0bab5;
+  --color-danger-bg-subtle: rgb(163 48 44 / 0.18);
+  --color-danger-border-subtle: rgb(163 48 44 / 0.45);
+  --color-info: var(--forest-300);
+  --color-info-bg-subtle: rgb(159 184 164 / 0.14);
+  --color-info-border-subtle: rgb(159 184 164 / 0.4);
+  --color-success: var(--forest-300);
+  --color-success-bg-subtle: rgb(159 184 164 / 0.16);
+  --color-error: var(--color-danger);
+
+  /* The overlays sit on photographs, so they stay light in both themes. */
+  --color-badge-bg: var(--gold-200);
+  --color-badge-text: var(--bark-900);
+  --color-control-bg: var(--parchment-50);
+  --color-control-text: var(--bark-900);
+  --color-on-scrim: var(--parchment-50);
+  --color-scrim-rgb: 34 31 27;
+}

@@ -46,4 +46,12 @@
   --color-success: var(--sage-300);
   --color-success-bg-subtle: rgba(147, 163, 133, 0.16);
   --color-error: var(--color-danger);
+
+  /* Overlays that sit on photographs, so they stay light in both themes. */
+  --color-badge-bg: var(--rose-400);
+  --color-badge-text: var(--ink-900);
+  --color-control-bg: var(--cream-50);
+  --color-control-text: var(--ink-900);
+  --color-on-scrim: var(--cream-50);
+  --color-scrim-rgb: 46 37 33;
 }
